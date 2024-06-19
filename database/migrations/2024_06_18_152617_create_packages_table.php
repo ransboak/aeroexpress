@@ -12,8 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('packages', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('shipment_id')->constrained()->onDelete('cascade');
+            $table->uuid('id')->primary();
+            $table->unsignedBigInteger('shipment_id');
             $table->string('description');
             $table->decimal('weight', 8, 2);
             $table->decimal('price', 10, 2);

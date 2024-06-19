@@ -9,7 +9,11 @@ class Package extends Model
 {
     use HasFactory;
 
- protected $fillable = ['shipment_id', 'description', 'price', 'weight', 'status', 'arrival_status'];
+    public $incrementing = false;
+    protected $keytype = 'string';
+    protected $primaryKey = 'id';
+
+ protected $fillable = ['id', 'shipment_id', 'description', 'price', 'weight', 'status', 'arrival_status'];
 
     public function shipment()
     {
