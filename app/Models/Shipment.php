@@ -9,8 +9,12 @@ class Shipment extends Model
 {
     use HasFactory;
 
+    public $incrementing = false;
+    protected $keytype = 'string';
+    protected $primaryKey = 'id';
+
     protected $fillable = [
-        'user_id', 'price', 'status'
+       'id', 'user_id', 'price', 'status'
     ];
 
     public function user()
