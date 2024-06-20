@@ -15,6 +15,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->decimal('price', 10, 2)->nullable();
+            $table->bigInteger('tracking_number');
             $table->string('status')->default('pending');
             $table->timestamps();
 

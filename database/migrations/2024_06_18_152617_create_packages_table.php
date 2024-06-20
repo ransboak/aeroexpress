@@ -15,8 +15,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->unsignedBigInteger('shipment_id');
             $table->string('description');
-            $table->decimal('weight', 8, 2);
-            $table->decimal('price', 10, 2);
+            $table->decimal('weight', 8, 2)->nullable();
+            $table->decimal('price', 10, 2)->nullable();
             $table->string('status')->default('pending');
             $table->boolean('arrived')->default(false);
             $table->timestamps();
