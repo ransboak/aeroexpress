@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ShipmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,6 +27,8 @@ Route::get('/track', [PageController::class, 'track'])->name('track') ;
 Route::get('/blog', [PageController::class, 'blog'])->name('blog') ;
 Route::get('/contact-us', [PageController::class, 'contactUs'])->name('contactUs') ;
 Route::get('/request-quote', [PageController::class, 'requestQuote'])->name('requestQuote') ;
+
+Route::post('addShipment', [ShipmentController::class, 'addShipment'])->name('shipments.store');
 Route::get('/dashboard', function () {
     return view('backend.pages.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

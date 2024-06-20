@@ -14,7 +14,7 @@ class Shipment extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-       'id', 'user_id', 'price', 'status'
+       'id', 'tracking_number', 'user_id', 'price', 'status'
     ];
 
     public function user()
