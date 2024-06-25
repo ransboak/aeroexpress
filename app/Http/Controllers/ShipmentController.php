@@ -34,6 +34,7 @@ class ShipmentController extends Controller
                 'id' => $package_id,
                 'shipment_id' => $shipment_id,
                 'description' => $package['description'],
+                'tracking_number' => $package['tracking_number']
             ]);
         }
 

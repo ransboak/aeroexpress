@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Shipment;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -33,7 +34,8 @@ class PageController extends Controller
 
     //BACKEND
     public function shipments(){
-        return view('backend.pages.shipments');
+        $shipments = Shipment::with(['user', 'packages'])->latest()->get();
+        return view('backend.pages.shipments', compact('shipments'));
     }
     public function packages(){
         return view('backend.pages.packages');

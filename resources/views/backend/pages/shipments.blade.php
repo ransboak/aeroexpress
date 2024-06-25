@@ -6,41 +6,25 @@
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <h4 class="mb-0 font-size-18">Shipments</h4>
                 @if (session('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    {{session('success')}}
-                </div>
-                {{-- <div class="alert alert-success" role="alert">
-                    {{session('success')}}
-                </div> --}}
+                    <div class="alert alert-success" role="alert">
+                        {{session('success')}}
+                    </div>
                 @endif
                 @if (session('error'))
-                <div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    {{session('error')}}
-                </div>
-                {{-- <div class="alert alert-warning" role="alert">
-                    {{session('error')}}
-                </div> --}}
+                    <div class="alert alert-danger" role="alert">
+                        {{session('error')}}
+                    </div>
                 @endif
+
                 @if ($errors->any())
-                <ul style="list-style: none">
-                    @foreach ($errors->all() as $error)
-                        <li>
-                            <div class="alert alert-danger alert-dismissible fade show mb-0" role="alert">
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            {{$error}}
-                        </div>
-                        </li>
-                    @endforeach
-                </ul>
-            @endif
+                    <ul style="list-style: none">
+                        @foreach ($errors->all() as $error)
+                            <li><div class="alert alert-danger" role="alert">
+                                {{$error}}
+                            </div></li>
+                        @endforeach
+                    </ul>
+                @endif
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
@@ -62,16 +46,27 @@
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                             <tr>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Office</th>
-                                <th>Age</th>
-                                <th>Start date</th>
-                                <th>Salary</th>
+                                <th>Shipment ID</th>
+                                <th>No. of Packages</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <!-- Your table data goes here -->
+                            @foreach ($shipments as $shipment)
+                            <tr>
+                                <td>
+                                    <a href="">{{$shipment->id}}</a>
+                                </td>
+                                <td>{{$shipment->packages?->count()}}</td>
+                                <td>
+                                    @if ($shipment->status == 'pending')
+                                    <span class="badge badge-pill badge-warning">Pending</span>
+                                    @else
+                                    <span class="badge badge-pill badge-warning">Warning</span>
+                                    @endif
+                                    
+                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -123,6 +118,8 @@
                     packageDiv.querySelector('h5').textContent = `Package ${index + 1}`;
                     packageDiv.querySelector('textarea').setAttribute('id', `package_description_${index + 1}`);
                     packageDiv.querySelector('textarea').setAttribute('name', `packages[${index + 1}][description]`);
+                    packageDiv.querySelector('input[type="text"]').setAttribute('id', `package_tracking_number_${index + 1}`);
+                    packageDiv.querySelector('input[type="text"]').setAttribute('name', `packages[${index + 1}][tracking_number]`);
                     packageDiv.querySelector('.remove-package-btn').setAttribute('data-package-id', id);
                 }
             });
@@ -139,6 +136,8 @@
             packageDiv.setAttribute('id', `package-${packageCount}`);
             packageDiv.innerHTML = `
                 <h5>Package ${packageIds.length}</h5>
+                <label for="package_tracking_number_${packageCount}">Tracking Number</label>
+                <input type="text" name="packages[${packageIds.length}][tracking_number]" class="form-control" id="package_tracking_number_${packageCount}" required>
                 <label for="package_description_${packageCount}">Package Description</label>
                 <div class='d-flex' style='align-items: flex-end'>
                     <textarea style="resize: none" rows="5" name="packages[${packageIds.length}][description]" class="form-control" id="package_description_${packageCount}" required></textarea>
