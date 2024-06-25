@@ -1,178 +1,165 @@
 @extends('frontend.layouts.main')
 @section('content')
-    <!-- ============================
-          Slider
-      ============================== -->
-      <section id="slider1" class="slider slider-1">
-        <div class="owl-carousel thumbs-carousel carousel-arrows" data-slider-id="slider1" data-dots="false" data-autoplay="true" data-nav="true" data-transition="fade" data-animate-out="fadeOut" data-animate-in="fadeIn">
-          <div class="slide-item align-v-h bg-overlay">
-            <div class="bg-img"><img src="{{asset('frontend/assets/images/sliders/1.jpg')}}" alt="slide img"></div>
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-8">
-                  <div class="slide__content">
-                    <h2 class="slide__title">Fast, Certified &amp; Felxible Solutions.</h2>
-                    <p class="slide__desc">Through integrated supply chain solutions, our drives sustainable competitive
-                      advantages to some of the largest companies allover the world.</p>
-                    <a href="#" class="btn btn__primary btn__hover2 mr-30">Our Services</a>
-                    <a href="#" class="btn btn__white">About Us</a>
-                  </div><!-- /.slide-content -->
-                </div><!-- /.col-lg-8 -->
-              </div><!-- /.row -->
-            </div><!-- /.container -->
-          </div><!-- /.slide-item -->
-          <div class="slide-item align-v-h bg-overlay">
-            <div class="bg-img"><img src="{{asset('frontend/assets/images/sliders/4.jpg')}}" alt="slide img"></div>
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-8">
-                  <div class="slide__content">
-                    <h2 class="slide__title">Affordable Price &amp; Great Solutions.</h2>
-                    <p class="slide__desc">Through integrated supply chain solutions, our drives sustainable competitive
-                      advantages to some of the largest companies allover the world.</p>
-                    <a href="#" class="btn btn__white mr-30">About Us</a>
-                    <a href="#" class="btn btn__primary btn__hover2">Our Services</a>
-                  </div><!-- /.slide-content -->
-                </div><!-- /.col-lg-8 -->
-              </div><!-- /.row -->
-            </div><!-- /.container -->
-          </div><!-- /.slide-item -->
-          <div class="slide-item align-v-h bg-overlay">
-            <div class="bg-img"><img src="{{asset('frontend/assets/images/sliders/5.jpg')}}" alt="slide img"></div>
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-8">
-                  <div class="slide__content">
-                    <h2 class="slide__title">Solutions Matchs Your Needs. </h2>
-                    <p class="slide__desc">Through integrated supply chain solutions, our drives sustainable competitive
-                      advantages to some of the largest companies allover the world.</p>
-                    <a href="#" class="btn btn__primary btn__hover2 mr-30">Our Services</a>
-                    <a href="#" class="btn btn__white">About Us</a>
-                  </div><!-- /.slide-content -->
-                </div><!-- /.col-lg-8 -->
-              </div><!-- /.row -->
-            </div><!-- /.container -->
-          </div><!-- /.slide-item -->
-          <div class="slide-item align-v-h bg-overlay">
-            <div class="bg-img"><img src="{{asset('frontend/assets/images/sliders/3.jpg')}}" alt="slide img"></div>
-            <div class="container">
-              <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-8">
-                  <div class="slide__content">
-                    <h2 class="slide__title">Affordable Price, Certified experts &amp;</h2>
-                    <p class="slide__desc">Through integrated supply chain solutions, our drives sustainable competitive
-                      advantages to some of the largest companies allover the world.</p>
-                    <a href="#" class="btn btn__white mr-30">Get Started</a>
-                    <a href="#" class="btn btn__primary btn__hover2">Our Services</a>
-                  </div><!-- /.slide-content -->
-                </div><!-- /.col-lg-8 -->
-              </div><!-- /.row -->
-            </div><!-- /.container -->
-          </div><!-- /.slide-item -->
-        </div><!-- /.carousel -->
-        <div class="container">
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12 d-none d-lg-block">
-              <div class="owl-thumbs thumbs-dots" data-slider-id="slider1">
-                <button class="owl-thumb-item">
-                  <i class="icon-forklift-1"></i>
-                  <span>Warehousing <br> Services</span>
-                </button>
-                <button class="owl-thumb-item">
-                  <i class="icon-air-freight"></i>
-                  <span>Air Freight<br> Services</span>
-                </button>
-                <button class="owl-thumb-item">
-                  <i class="icon-cargo-ship"></i>
-                  <span>Ocean Freight<br> Services</span>
-                </button>
-                <button class="owl-thumb-item">
-                  <i class="icon-truck"></i>
-                  <span>Road Freight<br> Services</span>
-                </button>
-              </div><!-- /.owl-thumbs -->
-            </div><!-- /.col-lg-12 -->
-            <div class="col-sm-12 col-md-12 col-lg-12 d-none d-lg-block">
-              <a class="btn btn__video btn__video-lg popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4">
-                <div class="video__player">
-                  <span class="video__player-animation"></span>
-                  <span class="video__player-animation video__player-animation-2"></span>
-                  <i class="fa fa-play"></i>
-                </div>
-                <span class="video__btn-title">Watch Our Presentation!</span>
-              </a><!-- /.btn__video-->
-            </div><!-- /.col-lg-12 -->
-          </div><!-- /.row -->
-        </div><!-- /.container -->
-      </section><!-- /.slider -->
-  
-      <!-- ========================
-          Services
-      =========================== -->
-      <section id="services" class="services pb-90">
-        <div class="container">
-          <div class="row heading heading-2 mb-40">
-            <div class="col-sm-12 col-md-12 col-lg-12">
-              <span class="heading__subtitle">Real Solutions, Real Fast!</span>
-            </div><!-- /.col-lg-12 -->
-            <div class="col-sm-12 col-md-12 col-lg-6">
-              <h2 class="heading__title">Delivering the Best Global Logistics Solutions.</h2>
-            </div><!-- /.col-lg-5 -->
-            <div class="col-sm-12 col-md-12 col-lg-6 ">
-              <p class="heading__desc">Our global logistics expertise, advanced supply chain technology &amp; customized
-                logistics solutions will help you analyze, develop and implement successful supply chain management
-                strategies.</p>
-            </div><!-- /.col-lg-6 -->
-          </div><!-- /.row -->
-          <div class="row text-center">
-            <div class="col-sm-6 col-md-6 col-lg-4">
-              <div class="service-item">
-                <div class="service__icon"><i class="icon-air-freight"></i></div>
-                <div class="service__content">
-                  <h4 class="service__title">Air Freight</h4>
-                  <p class="service__desc">We can arrange and provides with the comprehensive service in the sphere of
-                    urgent, valuable, fragile or any cargoes conscientious accelerated delivery by air.</p>
-                  <a href="#" class="btn btn__white">
-                    <span>Read More</span><i class="icon-arrow-right"></i>
-                  </a>
-                </div>
-              </div><!-- /.service-item -->
-            </div><!-- /.col-lg-4 -->
-            <div class="col-sm-6 col-md-6 col-lg-4">
-              <div class="service-item">
-                <div class="service__icon"><i class="icon-cargo-ship"></i></div>
-                <div class="service__content">
-                  <h4 class="service__title">Ocean Freight</h4>
-                  <p class="service__desc">We provides with the main types of basic conditions International sea
-                    transportation is implemented by our partners’ vessels, the largest ocean carriers.</p>
-                  <a href="#" class="btn btn__white">
-                    <span>Read More</span><i class="icon-arrow-right"></i>
-                  </a>
-                </div>
-              </div><!-- /.service-item -->
-            </div><!-- /.col-lg-4 -->
-            <div class="col-sm-6 col-md-6 col-lg-4">
-              <div class="service-item">
-                <div class="service__icon"><i class="icon-truck"></i></div>
-                <div class="service__content">
-                  <h4 class="service__title">Road Freight</h4>
-                  <p class="service__desc">We provides with the main types of basic conditions International sea
-                    transportation is implemented by our partners’ vessels, the largest ocean carriers.</p>
-                  <a href="#" class="btn btn__white">
-                    <span>Read More</span><i class="icon-arrow-right"></i>
-                  </a>
-                </div>
-              </div><!-- /.service-item -->
-            </div><!-- /.col-lg-4 -->
-          </div><!-- /.row -->
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-12 text-center">
-              <p class="text__link mb-0">Logistic &amp; Transport Solutions Saves Your Time <a href="#">Find your solution</a>
-              </p>
-            </div><!-- /.col-lg-12 -->
-          </div><!-- /.row -->
-        </div><!-- /.container -->
-      </section><!-- /.Services -->
+<section id="slider1" class="slider slider-1">
+  <div class="owl-carousel thumbs-carousel carousel-arrows" data-slider-id="slider1" data-dots="false" data-autoplay="true" data-nav="true" data-transition="fade" data-animate-out="fadeOut" data-animate-in="fadeIn">
+    <div class="slide-item align-v-h bg-overlay">
+      <div class="bg-img"><img src="{{asset('frontend/assets/images/sliders/1.jpg')}}" alt="slide img"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-8">
+            <div class="slide__content">
+              <h2 class="slide__title">Fast, Certified &amp; Flexible Solutions.</h2>
+              <p class="slide__desc">AeroExpress provides reliable and efficient shipping from the US to Ghana, ensuring your packages arrive safely and on time.</p>
+              <a href="#" class="btn btn__primary btn__hover2 mr-30">Our Services</a>
+              <a href="#" class="btn btn__white">About Us</a>
+            </div><!-- /.slide-content -->
+          </div><!-- /.col-lg-8 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </div><!-- /.slide-item -->
+    <div class="slide-item align-v-h bg-overlay">
+      <div class="bg-img"><img src="{{asset('frontend/assets/images/sliders/4.jpg')}}" alt="slide img"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-8">
+            <div class="slide__content">
+              <h2 class="slide__title">Affordable Price &amp; Great Solutions.</h2>
+              <p class="slide__desc">Enjoy cost-effective shipping with AeroExpress, where we combine affordability with top-notch service for all your shipping needs.</p>
+              <a href="#" class="btn btn__white mr-30">About Us</a>
+              <a href="#" class="btn btn__primary btn__hover2">Our Services</a>
+            </div><!-- /.slide-content -->
+          </div><!-- /.col-lg-8 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </div><!-- /.slide-item -->
+    <div class="slide-item align-v-h bg-overlay">
+      <div class="bg-img"><img src="{{asset('frontend/assets/images/sliders/5.jpg')}}" alt="slide img"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-8">
+            <div class="slide__content">
+              <h2 class="slide__title">Solutions Tailored to Your Needs.</h2>
+              <p class="slide__desc">From personal shipments to large cargo, AeroExpress offers customized shipping solutions to meet your unique requirements.</p>
+              <a href="#" class="btn btn__primary btn__hover2 mr-30">Our Services</a>
+              <a href="#" class="btn btn__white">About Us</a>
+            </div><!-- /.slide-content -->
+          </div><!-- /.col-lg-8 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </div><!-- /.slide-item -->
+    <div class="slide-item align-v-h bg-overlay">
+      <div class="bg-img"><img src="{{asset('frontend/assets/images/sliders/3.jpg')}}" alt="slide img"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 col-md-12 col-lg-8">
+            <div class="slide__content">
+              <h2 class="slide__title">Certified Experts &amp; Affordable Prices</h2>
+              <p class="slide__desc">With AeroExpress, you get certified expertise and affordable prices for all your shipping needs between the US and Ghana.</p>
+              <a href="#" class="btn btn__white mr-30">Get Started</a>
+              <a href="#" class="btn btn__primary btn__hover2">Our Services</a>
+            </div><!-- /.slide-content -->
+          </div><!-- /.col-lg-8 -->
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </div><!-- /.slide-item -->
+  </div><!-- /.carousel -->
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-12 col-lg-12 d-none d-lg-block">
+        <div class="owl-thumbs thumbs-dots" data-slider-id="slider1">
+          <button class="owl-thumb-item">
+            <i class="icon-forklift-1"></i>
+            <span>Warehousing <br> Services</span>
+          </button>
+          <button class="owl-thumb-item">
+            <i class="icon-air-freight"></i>
+            <span>Air Freight<br> Services</span>
+          </button>
+          <button class="owl-thumb-item">
+            <i class="icon-cargo-ship"></i>
+            <span>Ocean Freight<br> Services</span>
+          </button>
+          <button class="owl-thumb-item">
+            <i class="icon-truck"></i>
+            <span>Road Freight<br> Services</span>
+          </button>
+        </div><!-- /.owl-thumbs -->
+      </div><!-- /.col-lg-12 -->
+      <div class="col-sm-12 col-md-12 col-lg-12 d-none d-lg-block">
+        <a class="btn btn__video btn__video-lg popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4">
+          <div class="video__player">
+            <span class="video__player-animation"></span>
+            <span class="video__player-animation video__player-animation-2"></span>
+            <i class="fa fa-play"></i>
+          </div>
+          <span class="video__btn-title">Watch Our Presentation!</span>
+        </a><!-- /.btn__video-->
+      </div><!-- /.col-lg-12 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section><!-- /.slider -->
+
+<!-- ========================
+    Services
+=========================== -->
+<section id="services" class="services pb-90">
+  <div class="container">
+    <div class="row heading heading-2 mb-40">
+      <div class="col-sm-12 col-md-12 col-lg-12">
+        <span class="heading__subtitle">Real Solutions, Real Fast!</span>
+      </div><!-- /.col-lg-12 -->
+      <div class="col-sm-12 col-md-12 col-lg-6">
+        <h2 class="heading__title">Delivering the Best Global Logistics Solutions.</h2>
+      </div><!-- /.col-lg-5 -->
+      <div class="col-sm-12 col-md-12 col-lg-6 ">
+        <p class="heading__desc">AeroExpress leverages its global logistics expertise, advanced supply chain technology, and customized solutions to optimize your shipping experience.</p>
+      </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+    <div class="row text-center">
+      <div class="col-sm-6 col-md-6 col-lg-4">
+        <div class="service-item">
+          <div class="service__icon"><i class="icon-air-freight"></i></div>
+          <div class="service__content">
+            <h4 class="service__title">Air Freight</h4>
+            <p class="service__desc">Our air freight services ensure fast and reliable delivery for your urgent, valuable, or fragile items.</p>
+            <a href="#" class="btn btn__white">
+              <span>Read More</span><i class="icon-arrow-right"></i>
+            </a>
+          </div>
+        </div><!-- /.service-item -->
+      </div><!-- /.col-lg-4 -->
+      <div class="col-sm-6 col-md-6 col-lg-4">
+        <div class="service-item">
+          <div class="service__icon"><i class="icon-cargo-ship"></i></div>
+          <div class="service__content">
+            <h4 class="service__title">Ocean Freight</h4>
+            <p class="service__desc">We provide comprehensive ocean freight solutions, partnering with the largest carriers to transport your goods securely.</p>
+            <a href="#" class="btn btn__white">
+              <span>Read More</span><i class="icon-arrow-right"></i>
+            </a>
+          </div>
+        </div><!-- /.service-item -->
+      </div><!-- /.col-lg-4 -->
+      <div class="col-sm-6 col-md-6 col-lg-4">
+        <div class="service-item">
+          <div class="service__icon"><i class="icon-truck"></i></div>
+          <div class="service__content">
+            <h4 class="service__title">Road Freight</h4>
+            <p class="service__desc">Our road freight services ensure timely and safe delivery of your goods across the US and Ghana.</p>
+            <a href="#" class="btn btn__white">
+              <span>Read More</span><i class="icon-arrow-right"></i>
+            </a>
+          </div>
+        </div><!-- /.service-item -->
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <a href="#" class="btn btn__primary btn__hover3 btn__lg">Our Services</a>
+      </div><!-- /.col-lg-12 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</section><!-- /.Services -->
       <!-- =========================== 
         fancybox Carousel
       ============================= -->
@@ -484,8 +471,8 @@
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
               <div class="heading mb-50">
-                <span class="heading__subtitle">What Peoples Say!</span>
-                <h2 class="heading__title">Testimonials</h2>
+                <span class="heading__subtitle">What Our Clients Say!</span>
+                <h2 class="heading__title">Client Testimonials</h2>
               </div><!-- /.heading -->
             </div><!-- /.col-lg-6 -->
           </div><!-- /.row -->
@@ -493,46 +480,42 @@
             <div class="col-sm-12 col-md-12 col-lg-10 offset-lg-1">
               <div class="carousel owl-carousel carousel-arrows carousel-dots" data-slide="1" data-slide-md="1" data-slide-sm="1" data-autoplay="true" data-nav="true" data-dots="true" data-space="0" data-loop="true" data-speed="800">
                 <!-- Testimonial #1 -->
-                <div class=" testimonial-item">
+                <div class="testimonial-item">
                   <div class="testimonial__thumb">
                     <img src="{{asset('frontend/assets/images/testimonials/thumbs/1.jpg')}}" alt="author thumb">
                   </div><!-- /.testimonial-thumb -->
                   <div class="testimonial__content">
-                    <p class="testimonial__desc">They are the best of the best, and expertly trained team members who take
-                      the extra step and go the extra mile, all to fulfill our dedicated promise to deliver innovative and
-                      dynamic solutions to our customers to fit the needs of a rapidly changing global environment.</p>
+                    <p class="testimonial__desc">AeroExpress provided exceptional service, ensuring our goods arrived on time and in perfect condition. Their team's dedication and expertise truly set them apart.</p>
                   </div><!-- /.testimonial-content -->
                   <div class="testimonial__meta">
                     <img src="{{asset('frontend/assets/images/testimonials/signature.png')}}" alt="signature">
-                    <p class="testimonial__meta-desc">The Move Inc</p>
+                    <p class="testimonial__meta-desc">John Doe, ABC Company</p>
                   </div><!-- /.testimonial-meta -->
-                </div><!-- /. testimonial-item -->
+                </div><!-- /.testimonial-item -->
                 <!-- Testimonial #2 -->
-                <div class=" testimonial-item">
+                <div class="testimonial-item">
                   <div class="testimonial__thumb">
-                    <img src="{{asset('frontend/assets/images/testimonials/thumbs/1.jpg')}}" alt="author thumb">
+                    <img src="{{asset('frontend/assets/images/testimonials/thumbs/2.jpg')}}" alt="author thumb">
                   </div><!-- /.testimonial-thumb -->
                   <div class="testimonial__content">
-                    <p class="testimonial__desc">Logisti team is the best of the best, and expertly trained team members
-                      who take the extra step and go the extra mile, all to fulfill our dedicated promise to deliver
-                      innovative and dynamic solutions to our customers to fit the needs of a rapidly changing global
-                      environment.</p>
+                    <p class="testimonial__desc">I highly recommend AeroExpress for their reliability and professionalism. They exceeded our expectations in every aspect, making our shipping experience seamless and stress-free.</p>
                   </div><!-- /.testimonial-content -->
                   <div class="testimonial__meta">
                     <img src="{{asset('frontend/assets/images/testimonials/signature.png')}}" alt="signature">
-                    <p class="testimonial__meta-desc">The Move Inc</p>
+                    <p class="testimonial__meta-desc">Jane Smith, XYZ Inc.</p>
                   </div><!-- /.testimonial-meta -->
-                </div><!-- /. testimonial-item -->
-              </div>
+                </div><!-- /.testimonial-item -->
+              </div><!-- /.carousel -->
             </div><!-- /.col-lg-12 -->
           </div><!-- /.row -->
         </div><!-- /.container -->
       </section><!-- /.testimonial1 -->
+      
   
       <!-- =====================
          Clients 1
       ======================== -->
-      <section id="clients1" class="clients clients-1 border-top">
+      {{-- <section id="clients1" class="clients clients-1 border-top">
         <div class="container">
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
@@ -559,63 +542,59 @@
             </div><!-- /.col-lg-12 -->
           </div><!-- /.row -->
         </div><!-- /.container -->
-      </section><!-- /.clients 1 -->
+      </section><!-- /.clients 1 --> --}}
   
       <!-- ======================
              banner 3
         ========================= -->
-      <section id="banner3" class="banner banner-3 p-0 bg-theme">
-        <div class="container-fluid col-padding-0">
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-6 background-banner bg-overlay">
-              <div class="bg-img"><img src="{{asset('frontend/assets/images/banners/7.jpg')}}" alt="background"></div>
-              <div class="video__btn video__btn-white video__btn-right-center">
-                <a class="popup-video" href="https://www.youtube.com/watch?4=&amp;v=TKnufs85hXk">
-                  <span class="video__player-animation"></span>
-                  <span class="video__player-animation video__player-animation-2"></span>
-                  <div class="video__player">
-                    <i class="fa fa-play"></i>
-                  </div>
-                </a>
-              </div><!-- /.video -->
-            </div><!-- /.col-lg-6 -->
-            <div class="col-sm-12 col-md-12 col-lg-6">
-              <div class="inner-padding">
-                <div class="heading heading-3 heading-white mb-50">
-                  <h2 class="heading__title">Flexible Pricing Policy <br>&amp; Decades Of Experience!</h2>
-                  <p class="heading__desc">We believe that the services, offered by our company, should satisfy the high
-                    expectations of our customers. We are dedicated in creating added value for our customers by
-                    implementing modern technology in our work. That is why the desire of constant improvement is the
-                    driving force behind our transportation business.</p>
-                </div><!-- /.heading -->
-                <div class="counters-white d-flex flex-wrap justify-content-between">
-                  <div class="counter-item">
-                    <h4><span class="counter">3,214</span><span>m</span></h4>
-                    <p class="counter__desc">Clients Worldwide</p>
-                  </div>
-                  <div class="counter-item">
-                    <h4><span class="counter">5,154</span><span>m</span></h4>
-                    <p class="counter__desc">Delivered Goods</p>
-                  </div>
-                  <div class="counter-item">
-                    <h4><span class="counter">8,845</span><span>m</span></h4>
-                    <p class="counter__desc">Miles Driven</p>
-                  </div>
-                </div><!-- /.counters -->
-                <p class="color-white mb-20">Providing the best transport and shipping services currently available
-                  allover the world. Our skilled personnel, utilising the latest communications, new tracking and
-                  processing software, combined with decades of experience!</p>
-                <img src="{{asset('frontend/assets/images/about/singnture2.png')}}" alt="singnture">
-              </div>
-            </div><!-- /.col-lg-6 -->
-          </div><!-- /.row -->
-        </div><!-- /.container -->
-      </section><!-- /.banner 3 -->
-  
+        <section id="banner3" class="banner banner-3 p-0 bg-theme">
+          <div class="container-fluid col-padding-0">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-6 background-banner bg-overlay">
+                <div class="bg-img"><img src="{{asset('frontend/assets/images/banners/7.jpg')}}" alt="background"></div>
+                <div class="video__btn video__btn-white video__btn-right-center">
+                  <a class="popup-video" href="https://www.youtube.com/watch?4=&amp;v=TKnufs85hXk">
+                    <span class="video__player-animation"></span>
+                    <span class="video__player-animation video__player-animation-2"></span>
+                    <div class="video__player">
+                      <i class="fa fa-play"></i>
+                    </div>
+                  </a>
+                </div><!-- /.video -->
+              </div><!-- /.col-lg-6 -->
+              <div class="col-sm-12 col-md-12 col-lg-6">
+                <div class="inner-padding">
+                  <div class="heading heading-3 heading-white mb-50">
+                    <h2 class="heading__title">Premium Shipping Solutions <br>&amp; Unmatched Experience!</h2>
+                    <p class="heading__desc">We are committed to delivering exceptional shipping solutions that exceed the expectations of our clients worldwide. Our dedication to innovation and continuous improvement drives our success in the global transportation industry.</p>
+                  </div><!-- /.heading -->
+                  <div class="counters-white d-flex flex-wrap justify-content-between">
+                    <div class="counter-item">
+                      <h4><span class="counter">3,214</span><span>m</span></h4>
+                      <p class="counter__desc">Clients Worldwide</p>
+                    </div>
+                    <div class="counter-item">
+                      <h4><span class="counter">5,154</span><span>m</span></h4>
+                      <p class="counter__desc">Delivered Goods</p>
+                    </div>
+                    <div class="counter-item">
+                      <h4><span class="counter">8,845</span><span>m</span></h4>
+                      <p class="counter__desc">Miles Driven</p>
+                    </div>
+                  </div><!-- /.counters -->
+                  <p class="color-white mb-20">We provide top-notch transport and shipping services worldwide. Our skilled team leverages cutting-edge technology and decades of experience to ensure reliable and efficient logistics solutions.</p>
+                  <img src="{{asset('frontend/assets/images/about/signature2.png')}}" alt="signature">
+                </div>
+              </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+          </div><!-- /.container -->
+        </section><!-- /.banner 3 -->
+        
+      {{-- <img src="{{asset('frontend/assets/images/about/singnture2.png')}}" alt="singnture"> --}}
       <!-- ======================
              projects Carousel
         ========================= -->
-      <section id="projectsCarousel" class="projects-carousel">
+      {{-- <section id="projectsCarousel" class="projects-carousel">
         <div class="container">
           <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
@@ -698,84 +677,77 @@
             </div><!-- /.col-lg-12 -->
           </div><!-- /.row -->
         </div><!-- /.container -->
-      </section><!-- /.projects-carousel -->
+      </section><!-- /.projects-carousel --> --}}
       <!-- ======================
              banner 1
         ========================= -->
-      <section id="banner1" class="banner banner-1 p-0 bg-gray">
-        <div class="container-fluid col-padding-0">
-          <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-6">
-              <div class="inner-padding">
-                <div class="heading heading-3 mb-30">
-                  <i class="icon-tag"></i>
-                  <span class="heading__subtitle">Affordable Price, Certified Forwarders</span>
-                  <h2 class="heading__title">Safe, Reliable &amp; Express Logistic Solutions That Saves Your Time!</h2>
-                  <p class="heading__desc">We pride ourselves on providing the best transport and shipping services
-                    available allover the world. Our skilled personnel, utilising the latest communications, tracking and
-                    processing software, combined with decades of experience.</p>
-                </div><!-- /.heading -->
-                <a href="#" class="btn btn__primary">Schedule An Appointment</a>
-              </div>
-            </div><!-- /.col-lg-6 -->
-            <div class="col-sm-12 col-md-12 col-lg-6 bg-overlay  background-banner">
-              <div class="bg-img"><img src="{{asset('frontend/assets/images/banners/1.jpg')}}" alt="background"></div>
-              <div class="skills skills-panel">
-                <div class="heading mb-30">
-                  <h2 class="heading__title">What We Achieved!</h2>
-                  <p class="heading__desc">Fulfill our dedicated promise to deliver innovative &amp; dynamic solutions to our
-                    customers to fit their needs.</p>
-                </div><!-- /.heading -->
-                <!-- progress 1 -->
-                <div class="progress-item">
-                  <h6 class="progress__title">Warehousing</h6>
-                  <span class="progress__percentage"></span>
-                  <div class="progress">
-                    <div class="progress-bar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100" role="progressbar">
-                    </div>
-                  </div><!-- /.progress -->
-                </div><!-- /.progress-item  -->
-                <!-- progress 2 -->
-                <div class="progress-item">
-                  <h6 class="progress__title">Air Freight</h6>
-                  <span class="progress__percentage"></span>
-                  <div class="progress">
-                    <div class="progress-bar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100" role="progressbar">
-                    </div>
-                  </div><!-- /.progress -->
-                </div><!-- /.progress-item  -->
-                <!-- progress 3 -->
-                <div class="progress-item">
-                  <h6 class="progress__title">Ocean Freight</h6>
-                  <span class="progress__percentage"></span>
-                  <div class="progress">
-                    <div class="progress-bar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100" role="progressbar">
-                    </div>
-                  </div><!-- /.progress -->
-                </div><!-- /.progress-item  -->
-                <!-- progress 4 -->
-                <div class="progress-item">
-                  <h6 class="progress__title">Road Freight</h6>
-                  <span class="progress__percentage"></span>
-                  <div class="progress">
-                    <div class="progress-bar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" role="progressbar">
-                    </div>
-                  </div><!-- /.progress -->
-                </div><!-- /.progress-item  -->
-                <!-- progress 8 -->
-                <div class="progress-item">
-                  <h6 class="progress__title">Supply Chain</h6>
-                  <span class="progress__percentage"></span>
-                  <div class="progress">
-                    <div class="progress-bar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" role="progressbar">
-                    </div>
-                  </div><!-- /.progress -->
-                </div><!-- /.progress-item  -->
-              </div><!-- /.skills -->
-            </div><!-- /.col-lg-6 -->
-          </div><!-- /.row -->
-        </div><!-- /.container -->
-      </section><!-- /.banner 1 -->
+        <section id="banner1" class="banner banner-1 p-0 bg-gray">
+          <div class="container-fluid col-padding-0">
+            <div class="row">
+              <div class="col-sm-12 col-md-12 col-lg-6">
+                <div class="inner-padding">
+                  <div class="heading heading-3 mb-30">
+                    <i class="icon-tag"></i>
+                    <span class="heading__subtitle">Affordable Price, Certified Forwarders</span>
+                    <h2 class="heading__title">Safe, Reliable &amp; Express Logistic Solutions That Saves Your Time!</h2>
+                    <p class="heading__desc">We are dedicated to providing safe, reliable, and efficient logistic solutions that save your valuable time. Our commitment to excellence ensures that we meet the high expectations of our customers worldwide.</p>
+                  </div><!-- /.heading -->
+                  <a href="#" class="btn btn__primary">Schedule An Appointment</a>
+                </div>
+              </div><!-- /.col-lg-6 -->
+              <div class="col-sm-12 col-md-12 col-lg-6 bg-overlay background-banner">
+                <div class="bg-img"><img src="{{asset('frontend/assets/images/banners/1.jpg')}}" alt="background"></div>
+                <div class="skills skills-panel">
+                  <div class="heading mb-30">
+                    <h2 class="heading__title">What We Achieved!</h2>
+                    <p class="heading__desc">We fulfill our dedicated promise to deliver innovative &amp; dynamic solutions to our customers to fit their needs.</p>
+                  </div><!-- /.heading -->
+                  <!-- progress 1 -->
+                  <div class="progress-item">
+                    <h6 class="progress__title">Warehousing</h6>
+                    <span class="progress__percentage">95%</span>
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 95%;" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div><!-- /.progress -->
+                  </div><!-- /.progress-item  -->
+                  <!-- progress 2 -->
+                  <div class="progress-item">
+                    <h6 class="progress__title">Air Freight</h6>
+                    <span class="progress__percentage">88%</span>
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 88%;" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div><!-- /.progress -->
+                  </div><!-- /.progress-item  -->
+                  <!-- progress 3 -->
+                  <div class="progress-item">
+                    <h6 class="progress__title">Ocean Freight</h6>
+                    <span class="progress__percentage">99%</span>
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 99%;" role="progressbar" aria-valuenow="99" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div><!-- /.progress -->
+                  </div><!-- /.progress-item  -->
+                  <!-- progress 4 -->
+                  <div class="progress-item">
+                    <h6 class="progress__title">Road Freight</h6>
+                    <span class="progress__percentage">80%</span>
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 80%;" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div><!-- /.progress -->
+                  </div><!-- /.progress-item  -->
+                  <!-- progress 8 -->
+                  <div class="progress-item">
+                    <h6 class="progress__title">Supply Chain</h6>
+                    <span class="progress__percentage">70%</span>
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 70%;" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div><!-- /.progress -->
+                  </div><!-- /.progress-item  -->
+                </div><!-- /.skills -->
+              </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+          </div><!-- /.container -->
+        </section><!-- /.banner 1 -->
+        
   
       <!-- ======================
         Blog Grid

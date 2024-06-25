@@ -13,7 +13,7 @@ class Package extends Model
     protected $keytype = 'string';
     protected $primaryKey = 'id';
 
- protected $fillable = ['id', 'shipment_id', 'description', 'price', 'weight', 'status', 'arrival_status'];
+ protected $fillable = ['id', 'shipment_id', 'tracking_number', 'package_image', 'description', 'price', 'weight', 'status', 'arrival_status'];
 
     public function shipment()
     {

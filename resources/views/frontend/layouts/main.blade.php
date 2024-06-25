@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Optime Logistics &amp; Transportation Templatei">
     <link href="{{asset('backend/assets/images/aeroexp.ico')}}" rel="icon">
-    <title>Optime Logistics &amp; Transportation Template</title>
+    <title>AeroExpress</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700%7cPoppins:400,600,700&amp;display=swap">
     <link rel="stylesheet" href="{{asset('frontend/assets/css/libraries.css')}}">
     <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}">

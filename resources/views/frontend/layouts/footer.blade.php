@@ -32,7 +32,7 @@
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-4 footer__widget footer__widget-about">
             <div class="footer__widget-content">
-              <img src="{{asset('frontend/assets/images/logo/logo-small.png')}}" alt="logo" class="footer-logo">
+              <img src="{{asset('backend/assets/images/aero.png')}}" alt="logo" class="footer-logo" height="40">
               <p>Our global Optimecs expertise, advanced supply chain technology &amp; customized Optimecs solutions
                 will help you develop and implement successful supply.</p>
               <ul class="contact__list list-unstyled">

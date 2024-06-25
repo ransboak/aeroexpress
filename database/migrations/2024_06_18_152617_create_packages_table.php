@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->unsignedBigInteger('shipment_id');
+            $table->unsignedBigInteger('tracking_number')->unique();
+            $table->string('package_image')->nullable();
             $table->string('description');
             $table->decimal('weight', 8, 2)->nullable();
             $table->decimal('price', 10, 2)->nullable();
@@ -22,6 +24,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->index('shipment_id');
+            $table->index('tracking_number');
             $table->index('status');
             $table->index('arrived');
         });

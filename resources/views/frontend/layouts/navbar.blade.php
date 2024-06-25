@@ -2,8 +2,9 @@
   <nav class="navbar navbar-expand-lg sticky-navbar">
     <div class="container">
       <a class="navbar-brand" href="{{ route('home') }}">
-        <img src="{{ asset('frontend/assets/images/logo/logo-light.png') }}" class="logo-light" alt="logo">
-        <img src="{{ asset('frontend/assets/images/logo/logo-dark.png') }}" class="logo-dark" alt="logo">
+        <img src="{{asset('backend/assets/images/aero-light.png')}}" class="logo-light" alt="logo" height="38" >        
+        <img src="{{asset('backend/assets/images/aero.png')}}" class="logo-dark" alt="logo" height="38" >        
+
       </a>
       <button class="navbar-toggler" type="button">
         <span class="menu-lines"><span></span></span>
@@ -12,16 +13,16 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav__item with-dropdown">
             <a href="{{ route('home') }}" class="dropdown-toggle nav__item-link {{ Request::routeIs('home') ? 'active' : '' }}">Home</a>
-            <i class="fa fa-angle-right" data-toggle="dropdown"></i>
+            {{-- <i class="fa fa-angle-right" data-toggle="dropdown"></i>
             <ul class="dropdown-menu">
               <li class="nav__item"><a href="{{ route('home') }}" class="nav__item-link">Home Main</a></li>
               <li class="nav__item"><a href="home-modern.html" class="nav__item-link">Home Modern</a></li>
               <li class="nav__item"><a href="home-classic.html" class="nav__item-link">Home Classic</a></li>
-            </ul><!-- /.dropdown-menu -->
+            </ul><!-- /.dropdown-menu --> --}}
           </li><!-- /.nav-item -->
           <li class="nav__item with-dropdown">
             <a href="{{ route('aboutUs') }}" class="dropdown-toggle nav__item-link {{ Request::routeIs('aboutUs') ? 'active' : '' }}">Company</a>
-            <i class="fa fa-angle-right" data-toggle="dropdown"></i>
+            {{-- <i class="fa fa-angle-right" data-toggle="dropdown"></i>
             <ul class="dropdown-menu">
               <li class="nav__item"><a href="{{ route('aboutUs') }}" class="nav__item-link">About Us</a></li>
               <li class="nav__item"><a href="why-us.html" class="nav__item-link">Why Choose Us</a></li>
@@ -29,11 +30,11 @@
               <li class="nav__item"><a href="global-locations.html" class="nav__item-link">Global Locations</a></li>
               <li class="nav__item"><a href="gallery.html" class="nav__item-link">Our Gallery</a></li>
               <li class="nav__item"><a href="careers.html" class="nav__item-link">Careers</a></li>
-            </ul><!-- /.dropdown-menu -->
+            </ul><!-- /.dropdown-menu --> --}}
           </li><!-- /.nav-item -->
           <li class="nav__item with-dropdown">
             <a href="{{ route('services') }}" class="dropdown-toggle nav__item-link {{ Request::routeIs('services') ? 'active' : '' }}">Services</a>
-            <i class="fa fa-angle-right" data-toggle="dropdown"></i>
+            {{-- <i class="fa fa-angle-right" data-toggle="dropdown"></i>
             <ul class="dropdown-menu wide-dropdown-menu">
               <li class="nav__item">
                 <div class="row mx-0">
@@ -61,9 +62,9 @@
                   </div><!-- /.col-sm-6 -->
                 </div><!-- /.row -->
               </li><!-- /.nav-item -->
-            </ul><!-- /.dropdown-menu -->
+            </ul><!-- /.dropdown-menu --> --}}
           </li><!-- /.nav-item -->
-          <li class="nav__item with-dropdown">
+          {{-- <li class="nav__item with-dropdown">
             <a href="{{ route('blog') }}" class="dropdown-toggle nav__item-link {{ Request::routeIs('blog') ? 'active' : '' }}">News &amp; Media</a>
             <i class="fa fa-angle-right" data-toggle="dropdown"></i>
             <ul class="dropdown-menu">
@@ -72,17 +73,17 @@
               <li class="nav__item"><a href="case-studies.html" class="nav__item-link">Case Studies</a></li>
               <li class="nav__item"><a href="case-studies-single.html" class="nav__item-link">Case Study Single</a></li>
             </ul><!-- /.dropdown-menu -->
-          </li><!-- /.nav-item -->
+          </li><!-- /.nav-item --> --}}
           <li class="nav__item with-dropdown">
             <a href="{{ route('track') }}" class="dropdown-toggle nav__item-link {{ Request::routeIs('track') ? 'active' : '' }}">Track and Trace</a>
-            <i class="fa fa-angle-right" data-toggle="dropdown"></i>
+            {{-- <i class="fa fa-angle-right" data-toggle="dropdown"></i>
             <ul class="dropdown-menu">
               <li class="nav__item"><a href="{{ route('requestQuote') }}" class="nav__item-link">Request a Quote</a></li>
               <li class="nav__item"><a href="{{ route('track') }}" class="nav__item-link">Track and Trace</a></li>
               <li class="nav__item"><a href="find-location.html" class="nav__item-link">Find Location</a></li>
               <li class="nav__item"><a href="rates.html" class="nav__item-link">Rates &amp; Pricing</a></li>
               <li class="nav__item"><a href="faqs.html" class="nav__item-link">Help and FAQs</a></li>
-            </ul><!-- /.dropdown-menu -->
+            </ul><!-- /.dropdown-menu --> --}}
           </li><!-- /.nav-item -->
           {{-- <li class="nav__item with-dropdown">
             <a href="{{ route('features') }}" data-toggle="dropdown" class="dropdown-toggle nav__item-link {{ Request::routeIs('features') ? 'active' : '' }}">Features</a>
@@ -103,14 +104,14 @@
       <div class="navbar-modules">
         <ul class="modules__wrapper d-flex align-items-center list-unstyled">
           <li>
-            <a href="#" class="module__btn module__btn-search"><i class="fa fa-search"></i></a>
+            {{-- <a href="#" class="module__btn module__btn-search"><i class="fa fa-search"></i></a> --}}
           </li>
           <li class="d-none d-lg-block">
             <a href="{{ route('requestQuote') }}" class="module__btn btn__request btn {{ Request::routeIs('requestQuote') ? 'active' : '' }}">
               <span>Request A Quote</span><i class="icon-arrow-right"></i>
             </a>
           </li>
-          <li>
+          {{-- <li>
             <div class="dropdown">
               <button class="module__btn dropdown-toggle" id="langDrobdown" data-toggle="dropdown">
                 <span>En</span>
@@ -124,7 +125,7 @@
                 </a>
               </div>
             </div>
-          </li>
+          </li> --}}
         </ul><!-- /.modules-wrapper -->
       </div><!-- /.navbar-modules -->
     </div><!-- /.container -->
