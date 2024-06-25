@@ -36,6 +36,7 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth'])->group(function(){
     Route::get('/shipments', [PageController::class, 'shipments'])->name('shipments');
     Route::get('/packages', [PageController::class, 'packages'])->name('packages');
+    Route::get('invoice', [PageController::class, 'invoice'])->name('invoice');
 });
 
 Route::middleware('auth')->group(function () {

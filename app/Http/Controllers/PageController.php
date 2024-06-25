@@ -38,4 +38,7 @@ class PageController extends Controller
     public function packages(){
         return view('backend.pages.packages');
     }
+    public function invoice(){
+        return view('backend.pages.invoice');
+    }
 }
