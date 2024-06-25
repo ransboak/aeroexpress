@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="description" content="Optime Logistics &amp; Transportation Templatei">
-    <link href="{{asset('frontend/assets/images/favicon/favicon.png')}}" rel="icon">
+    <link href="{{asset('backend/assets/images/aeroexp.ico')}}" rel="icon">
     <title>Optime Logistics &amp; Transportation Template</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,500,700%7cPoppins:400,600,700&amp;display=swap">
     <link rel="stylesheet" href="{{asset('frontend/assets/css/libraries.css')}}">
