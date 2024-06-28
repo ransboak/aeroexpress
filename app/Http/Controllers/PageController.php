@@ -54,6 +54,14 @@ class PageController extends Controller
         }    
         return view('backend.pages.shipments', compact('shipments'));
     }
+    public function unclaimedShipments(){
+        $user = Auth::user();
+        if($user->role !== 'admin'){
+            return redirect()->back();
+        }
+        $shipments = Shipment::with(['user', 'packages'])->where('custshipment_id', null)->latest()->get(); 
+        return view('backend.pages.unclaimed-shipments', compact('shipments'));
+    }
     public function pendingShipments(){
         $user = Auth::user();
         if($user->role == 'admin'){
@@ -85,14 +93,39 @@ class PageController extends Controller
         }
         return view('backend.pages.shipment-pending-packages', compact('shipment'));
     }
+    public function receivedPackages(){
+        $user = Auth::user();
+        if($user->role == 'admin'){
+            $packages = Package::with('shipment')->where('status', '!=', 'Pending')->latest()->get();
+        }else{
+            $packages = Package::with('shipment')->whereHas('custshipment', function ($query) use ($user) {
+                $query->where('user_id', $user->id);
+            })->where('status', '!=', 'Pending')->latest()->get();
+        }
+        return view('backend.pages.received-packages', compact('packages'));
+    }
     public function allPendingPackages(){
         $user = Auth::user();
         if($user->role == 'admin'){
-            $packages = Package::all();
-            return view('backend.pages.pending-packages', compact('packages'));
+            $packages = Package::where('status', 'Pending')->latest()->get();
         }else{
-            return redirect()->back();
+            $packages = Package::whereHas('custshipment', function ($query) use ($user) {
+                $query->where('user_id', $user->id);
+            })->where('status', 'Pending')->latest()->get();
         }
+        return view('backend.pages.pending-packages', compact('packages'));
+        
+    }
+    public function allPackages(){
+        $user = Auth::user();
+        if($user->role == 'admin'){
+            $packages = Package::all();
+        }else{
+            $packages = Package::whereHas('custshipment', function ($query) use ($user) {
+                $query->where('user_id', $user->id);
+            })->latest()->get();
+        }
+        return view('backend.pages.all-packages', compact('packages'));
         
     }
     public function invoice(Shipment $shipment){

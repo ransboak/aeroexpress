@@ -28,25 +28,34 @@
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <h4 class="mb-0 font-size-18">Shipments</h4>
                 @if (session('success'))
-                    <div class="alert alert-success" role="alert">
-                        {{session('success')}}
-                    </div>
-                @endif
-                @if (session('error'))
-                    <div class="alert alert-danger" role="alert">
-                        {{session('error')}}
-                    </div>
-                @endif
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{session('success')}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        @endif
+                        @if (session('error'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{session('error')}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        @endif
 
-                @if ($errors->any())
-                    <ul style="list-style: none">
-                        @foreach ($errors->all() as $error)
-                            <li><div class="alert alert-danger" role="alert">
-                                {{$error}}
-                            </div></li>
-                        @endforeach
-                    </ul>
-                @endif
+                        @if ($errors->any())
+                        <ul style="list-style: none">
+                            @foreach ($errors->all() as $error)
+                                <li><div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    {{$error}}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div></li>
+                            @endforeach
+                        </ul>
+                    @endif
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
@@ -87,8 +96,12 @@
                                 <td>
                                     @if ($shipment->status == 'pending')
                                     <span class="badge badge-pill badge-warning">Pending</span>
-                                    @else
-                                    <span class="badge badge-pill badge-warning">Warning</span>
+                                    @elseif($shipment->status == 'Ready')
+                                    <span class="badge badge-pill badge-success">Ready</span>
+                                    @elseif($shipment->status == 'In Transit')
+                                    <span class="badge badge-pill badge-success">In Transit</span>
+                                    @elseif($shipment->status == 'Delivered')
+                                    <span class="badge badge-pill badge-success">Delivered</span>
                                     @endif
                                     @if (Auth::user()->role == 'admin')
                                     <td ><i style="cursor: pointer" class="bx bx-pencil" data-toggle="modal" data-target="#exampleModalScrollable{{$shipment->id}}"></i></td>
@@ -105,8 +118,9 @@
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <form action="{{ route('shipments.store', $shipment->id) }}" method="POST">
+                                            <form action="{{ route('shipment.update', $shipment->id) }}" method="POST">
                                                 @csrf
+                                                @method('PUT')
                                                 <div class="form-group">
                                                     <h5>#AX{{$shipment->id}}</h5>
                                                 </div>
@@ -145,16 +159,14 @@
                                                                         <select name="status" class="custom-select">
                                                                             <option value="Pending" {{$shipment->status == 'Pending' ? 'selected' : ''}}>Pending</option>
                                                                             <option value="Received" {{$shipment->status == 'Received' ? 'selected' : ''}}>Received</option>
-                                                                            <option value="Received" {{$shipment->status == 'In Transit' ? 'selected' : ''}}>In Transit</option>
-                                                                            <option value="Received" {{$shipment->status == 'Ready' ? 'selected' : ''}}>Ready for Pickup</option>
-                                                                            <option value="Received" {{$shipment->status == 'Delivered' ? 'selected' : ''}}>Delivered</option>
-                                                                            {{-- <option value="2">Two</option>
-                                                                            <option value="3">Three</option> --}}
+                                                                            <option value="In Transit" {{$shipment->status == 'In Transit' ? 'selected' : ''}}>In Transit</option>
+                                                                            <option value="Ready" {{$shipment->status == 'Ready' ? 'selected' : ''}}>Ready for Pickup</option>
+                                                                            <option value="Delivered" {{$shipment->status == 'Delivered' ? 'selected' : ''}}>Delivered</option>
                                                                         </select>
                                                                     </div>
                                             <div>
                             
-                                                <div class="modal-footer" style='margint-bottom:-2rem'>
+                                                <div class="modal-footer" style='margin-bottom:-2rem'>
                                                     <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Update Shipment</button>
                                                 </div>

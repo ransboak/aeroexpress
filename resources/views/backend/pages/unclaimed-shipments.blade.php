@@ -4,69 +4,65 @@
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Shipment #AX{{$shipment->id}}</h4>
+                <h4 class="mb-0 font-size-18">Unclaimed Shipments</h4>
                 @if (session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{session('success')}}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        @endif
-                        @if (session('error'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {{session('error')}}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        @endif
+                    <div class="alert alert-success" role="alert">
+                        {{session('success')}}
+                    </div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger" role="alert">
+                        {{session('error')}}
+                    </div>
+                @endif
 
-                        @if ($errors->any())
-                        <ul style="list-style: none">
-                            @foreach ($errors->all() as $error)
-                                <li><div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{$error}}
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div></li>
-                            @endforeach
-                        </ul>
-                    @endif
+                @if ($errors->any())
+                    <ul style="list-style: none">
+                        @foreach ($errors->all() as $error)
+                            <li><div class="alert alert-danger" role="alert">
+                                {{$error}}
+                            </div></li>
+                        @endforeach
+                    </ul>
+                @endif
+                <div class="page-title-right">
+                    <ol class="breadcrumb m-0">
+                        <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
+                        <li class="breadcrumb-item active">Unclaimed Shipments</li>
+                    </ol>
+                </div>
             </div>
         </div>
     </div>
-
 
     <div class="row">
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
                     <div class="my-4">
-                        <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#exampleModalScrollable">Add New Package</button>
+                        <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#exampleModalScrollable">Add Shipment</button>
                     </div>
 
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                             <tr>
-                                <th>Tracking Number</th>
-                                <th>Description</th>
+                                <th>Shipment ID</th>
+                                <th>No. of Packages</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($shipment->packages as $package)
+                            @foreach ($shipments as $shipment)
                             <tr>
                                 <td>
-                                    {{$package->tracking_number}}
+                                    <a href="{{route('pending.packages', $shipment->id)}}">#AE{{$shipment->id}}</a>
                                 </td>
-                                <td>{{$package->exp_description}}</td>
+                                <td>{{$shipment->packages?->count()}}</td>
                                 <td>
-                                    @if ($package->status == 'Pending')
+                                    @if ($shipment->status == 'pending')
                                     <span class="badge badge-pill badge-warning">Pending</span>
                                     @else
-                                    <span class="badge badge-pill badge-success">{{$shipment->status}}</span>
+                                    <span class="badge badge-pill badge-warning">Warning</span>
                                     @endif
                                     
                             </tr>
@@ -88,15 +84,16 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('package.store', $shipment->id) }}" method="POST">
+                    <form action="{{ route('unclaimed.shipments.store') }}" method="POST">
                         @csrf
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="tracking_number">Tracking Number</label>
                             <input type="text" name="tracking_number" class="form-control" id="tracking_number" required>
-                            <label for="description">Package Description</label>
-                    <div>
-                    <textarea style="resize: none" rows="5" name="description" class="form-control" id="description" required></textarea>
-                        </div>
+                        </div> --}}
+                        
+                        <div id="package-details-container"></div>
+    
+                        <button type="button" id="add-package-btn" class="btn btn-secondary">Add Package</button>
     
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
@@ -109,7 +106,7 @@
     </div>
 </div>
 
-{{-- <script>
+<script>
     document.addEventListener('DOMContentLoaded', function () {
         let packageCount = 0;
         const packageIds = [];
@@ -168,5 +165,5 @@
             }
         });
     });
-</script> --}}
+</script>
 @endsection

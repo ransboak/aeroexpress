@@ -21,9 +21,9 @@
                         <span>Packages</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="{{route('all.pending.shipments')}}">All Packages</a></li>
-                        <li><a href="">Pending</a></li>
-                        <li><a href="">Received</a></li>
+                        <li><a href="{{route('all.packages')}}">All Packages</a></li>
+                        <li><a href="{{route('all.pending.packages')}}">Pending</a></li>
+                        <li><a href="{{route('received.packages')}}">Received</a></li>
                         {{-- <li><a href="{{route('all.pending.shipments')}}">Received</a></li>
                         <li><a href="layouts-compact-sidebar.html">Compact Sidebar</a></li>
                         <li><a href="layouts-icon-sidebar.html">Icon Sidebar</a></li>
@@ -45,12 +45,9 @@
                             <span class="badge badge-pill badge-success float-right">New</span>
                             <span>Pending</span> </a></li>
                         <li><a href="{{route('shipments')}}">Received</a></li>
-                        <li><a href="{{route('shipments')}}">Unclaimed</a></li>
+                        <li><a href="{{route('unclaimed.shipments')}}">Unclaimed</a></li>
                     </ul>
                 </li>
-
-                
-
             </ul>
         </div>
         <!-- Sidebar -->
