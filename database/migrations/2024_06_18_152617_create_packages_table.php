@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('packages', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->unsignedBigInteger('shipment_id')->nullable();
-            $table->unsignedBigInteger('custshipment_id');
+            $table->unsignedBigInteger('custshipment_id')->nullable();
             $table->unsignedBigInteger('tracking_number')->unique();
             $table->string('package_image')->nullable();
             $table->string('exp_description');

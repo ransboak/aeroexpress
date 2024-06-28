@@ -94,7 +94,7 @@
                                 </td>
                                 <td>{{$shipment->packages?->count()}}</td>
                                 <td>
-                                    @if ($shipment->status == 'pending')
+                                    @if ($shipment->status == 'Pending')
                                     <span class="badge badge-pill badge-warning">Pending</span>
                                     @elseif($shipment->status == 'Ready')
                                     <span class="badge badge-pill badge-success">Ready</span>

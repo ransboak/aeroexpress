@@ -28,7 +28,7 @@
                         <div class="col-7">
                             <div class="text-primary p-3">
                                 <h5 class="text-primary">Welcome Back !</h5>
-                                <p>Skote Dashboard</p>
+                                <p>AAERO XPRESS Dashboard</p>
                             </div>
                         </div>
                         <div class="col-5 align-self-end">
@@ -43,7 +43,7 @@
                                 <img src="{{asset('backend/assets/images/users/avatar-1.jpg')}}" alt="" class="img-thumbnail rounded-circle">
                             </div>
                             <h5 class="font-size-15 text-truncate">Henry Price</h5>
-                            <p class="text-muted mb-0 text-truncate">UI/UX Designer</p>
+                            <p class="text-muted mb-0 text-truncate">Admin</p>
                         </div>
 
                         <div class="col-sm-8">
@@ -65,28 +65,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title mb-4">Monthly Earning</h4>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <p class="text-muted">This month</p>
-                            <h3>$34,252</h3>
-                            <p class="text-muted"><span class="text-success mr-2"> 12% <i class="mdi mdi-arrow-up"></i> </span> From previous period</p>
-
-                            <div class="mt-4">
-                                <a href="" class="btn btn-primary waves-effect waves-light btn-sm">View More <i class="mdi mdi-arrow-right ml-1"></i></a>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="mt-4 mt-sm-0">
-                                <div id="radialBar-chart" class="apex-charts"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-muted mb-0">We craft digital, graphic and dimensional thinking.</p>
                 </div>
             </div>
         </div>
@@ -148,87 +126,12 @@
                 </div>
             </div>
             <!-- end row -->
-
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title mb-4 float-sm-left">Email Sent</h4>
-                    <div class="float-sm-right">
-                        <ul class="nav nav-pills">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html#">Week</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.html#">Month</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="index.html#">Year</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="clearfix"></div>
-                    <div id="stacked-column-chart" class="apex-charts" dir="ltr"></div>
-                </div>
-            </div>
         </div>
     </div>
     <!-- end row -->
 
     <div class="row">
-        <div class="col-xl-4">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title mb-4">Social Source</h4>
-                    <div class="text-center">
-                        <div class="avatar-sm mx-auto mb-4">
-                            <span class="avatar-title rounded-circle bg-soft-primary font-size-24">
-                                    <i class="mdi mdi-facebook text-primary"></i>
-                                </span>
-                        </div>
-                        <p class="font-16 text-muted mb-2"></p>
-                        <h5><a href="index.html#" class="text-dark">Facebook - <span class="text-muted font-16">125 sales</span> </a></h5>
-                        <p class="text-muted">Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus tincidunt.</p>
-                        <a href="index.html#" class="text-primary font-16">Learn more <i class="mdi mdi-chevron-right"></i></a>
-                    </div>
-                    <div class="row mt-4">
-                        <div class="col-4">
-                            <div class="social-source text-center mt-3">
-                                <div class="avatar-xs mx-auto mb-3">
-                                    <span class="avatar-title rounded-circle bg-primary font-size-16">
-                                            <i class="mdi mdi-facebook text-white"></i>
-                                        </span>
-                                </div>
-                                <h5 class="font-size-15">Facebook</h5>
-                                <p class="text-muted mb-0">125 sales</p>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="social-source text-center mt-3">
-                                <div class="avatar-xs mx-auto mb-3">
-                                    <span class="avatar-title rounded-circle bg-info font-size-16">
-                                            <i class="mdi mdi-twitter text-white"></i>
-                                        </span>
-                                </div>
-                                <h5 class="font-size-15">Twitter</h5>
-                                <p class="text-muted mb-0">112 sales</p>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="social-source text-center mt-3">
-                                <div class="avatar-xs mx-auto mb-3">
-                                    <span class="avatar-title rounded-circle bg-pink font-size-16">
-                                            <i class="mdi mdi-instagram text-white"></i>
-                                        </span>
-                                </div>
-                                <h5 class="font-size-15">Instagram</h5>
-                                <p class="text-muted mb-0">104 sales</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4">
+        {{-- <div class="col-xl-4">
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title mb-5">Activity</h4>
@@ -297,72 +200,7 @@
                     <div class="text-center mt-4"><a href="" class="btn btn-primary waves-effect waves-light btn-sm">View More <i class="mdi mdi-arrow-right ml-1"></i></a></div>
                 </div>
             </div>
-        </div>
-
-        <div class="col-xl-4">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title mb-4">Top Cities Selling Product</h4>
-
-                    <div class="text-center">
-                        <div class="mb-4">
-                            <i class="bx bx-map-pin text-primary display-4"></i>
-                        </div>
-                        <h3>1,456</h3>
-                        <p>San Francisco</p>
-                    </div>
-
-                    <div class="table-responsive mt-4">
-                        <table class="table table-centered table-nowrap">
-                            <tbody>
-                                <tr>
-                                    <td style="width: 30%">
-                                        <p class="mb-0">San Francisco</p>
-                                    </td>
-                                    <td style="width: 25%">
-                                        <h5 class="mb-0">1,456</h5></td>
-                                    <td>
-                                        <div class="progress bg-transparent progress-sm">
-                                            <div class="progress-bar bg-primary rounded" role="progressbar" style="width: 94%" aria-valuenow="94" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="mb-0">Los Angeles</p>
-                                    </td>
-                                    <td>
-                                        <h5 class="mb-0">1,123</h5>
-                                    </td>
-                                    <td>
-                                        <div class="progress bg-transparent progress-sm">
-                                            <div class="progress-bar bg-success rounded" role="progressbar" style="width: 82%" aria-valuenow="82" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p class="mb-0">San Diego</p>
-                                    </td>
-                                    <td>
-                                        <h5 class="mb-0">1,026</h5>
-                                    </td>
-                                    <td>
-                                        <div class="progress bg-transparent progress-sm">
-                                            <div class="progress-bar bg-warning rounded" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- end row -->
-
-    <div class="row">
+        </div> --}}
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-body">
@@ -565,6 +403,7 @@
             </div>
         </div>
     </div>
+    <!-- end row -->
     <!-- end row -->
 </div>
 <!-- Modal -->
