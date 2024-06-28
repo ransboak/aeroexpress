@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->decimal('price', 10, 2)->nullable();
             $table->unsignedBigInteger('tracking_number')->unique()->nullable();
-            $table->unsignedBigInteger('custshipment_id');
+            $table->unsignedBigInteger('custshipment_id')->nullable();
             $table->string('status')->default('Pending');
             $table->boolean('received')->default(true);
             $table->boolean('in_transit')->default(false);
