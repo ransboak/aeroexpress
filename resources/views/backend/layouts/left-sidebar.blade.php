@@ -15,34 +15,37 @@
                     </a>
                 </li>
 
-                {{-- <li>
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="bx bx-layout"></i>
+                        <span>Packages</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li><a href="{{route('all.pending.shipments')}}">All Packages</a></li>
+                        <li><a href="">Pending</a></li>
+                        <li><a href="">Received</a></li>
+                        {{-- <li><a href="{{route('all.pending.shipments')}}">Received</a></li>
+                        <li><a href="layouts-compact-sidebar.html">Compact Sidebar</a></li>
+                        <li><a href="layouts-icon-sidebar.html">Icon Sidebar</a></li>
+                        <li><a href="layouts-boxed.html">Boxed Width</a></li>
+                        <li><a href="layouts-preloader.html">Preloader</a></li>
+                        <li><a href="layouts-colored-sidebar.html">Colored Sidebar</a></li> --}}
+                    </ul>
+                </li>
+
+                <li class="menu-title">Apps</li>
+
+                <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="bx bx-layout"></i>
                         <span>Shipments</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="layouts-horizontal.html">Pending</a></li>
-                        <li><a href="layouts-light-sidebar.html">Completed</a></li>
-                        <li><a href="layouts-compact-sidebar.html">Compact Sidebar</a></li>
-                        <li><a href="layouts-icon-sidebar.html">Icon Sidebar</a></li>
-                        <li><a href="layouts-boxed.html">Boxed Width</a></li>
-                        <li><a href="layouts-preloader.html">Preloader</a></li>
-                        <li><a href="layouts-colored-sidebar.html">Colored Sidebar</a></li>
-                    </ul>
-                </li> --}}
-
-                <li class="menu-title">Apps</li>
-
-                <li>
-                    <a href="{{route('shipments')}}" class="has-arrow waves-effect">
-                        <i class="bx bx-layout"></i>
-                        <span>Shipments</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="false">
-                        <li><a href="layouts-horizontal.html">
+                        <li><a href="{{route('pending.shipments')}}">
                             <span class="badge badge-pill badge-success float-right">New</span>
                             <span>Pending</span> </a></li>
-                        <li><a href="layouts-light-sidebar.html">Completed</a></li>
+                        <li><a href="{{route('shipments')}}">Received</a></li>
+                        <li><a href="{{route('shipments')}}">Unclaimed</a></li>
                     </ul>
                 </li>
 

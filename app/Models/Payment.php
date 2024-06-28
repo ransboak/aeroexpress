@@ -24,11 +24,24 @@ class Payment extends Model
 
     public function shipment()
     {
-        return $this->belongsTo(Shipment::class);
+        return $this->belongsTo(Shipment::class, 'shipment_id');
     }
 
     public function package()
     {
-        return $this->belongsTo(Package::class);
+        return $this->belongsTo(Package::class, 'package_id');
+    }
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($payment) {
+            do {
+                $payment_id = time() . mt_rand(100, 999);
+            } while (self::where('id', $payment_id)->exists());
+
+            $payment->id = $payment_id;
+        });
     }
 }

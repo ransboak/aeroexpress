@@ -1,32 +1,10 @@
 @extends('backend.layouts.main')
 @section('content')
-<style>
-    .package-details {
-        display: grid;
-        grid-template-columns: 1fr 2fr 4fr 2fr;
-        gap: 10px;
-    }
-    
-    .package-header, .package-row {
-        display: contents;
-    }
-    
-    .package-header div, .package-row div {
-        padding: 10px;
-        border-bottom: 1px solid #ddd;
-    }
-    
-    .package-header {
-        font-weight: bold;
-        background-color: #f8f9fa;
-        border-bottom: 2px solid #ddd;
-    }
-    </style>
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
-                <h4 class="mb-0 font-size-18">Shipments</h4>
+                <h4 class="mb-0 font-size-18">All Shipments</h4>
                 @if (session('success'))
                     <div class="alert alert-success" role="alert">
                         {{session('success')}}
@@ -50,7 +28,7 @@
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
-                        <li class="breadcrumb-item active">Shipments</li>
+                        <li class="breadcrumb-item active">All Shipments</li>
                     </ol>
                 </div>
             </div>
@@ -61,9 +39,9 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-body">
-                    {{-- <div class="my-4">
+                    <div class="my-4">
                         <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#exampleModalScrollable">Add Shipment</button>
-                    </div> --}}
+                    </div>
 
                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
@@ -71,17 +49,13 @@
                                 <th>Shipment ID</th>
                                 <th>No. of Packages</th>
                                 <th>Status</th>
-                                @if (Auth::user()->role == 'admin')
-                                <th>Action</th>
-                                @endif
-                                
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($shipments as $shipment)
                             <tr>
                                 <td>
-                                    <a href="{{route('packages', $shipment->id)}}">#AE{{$shipment->id}}</a>
+                                    <a href="{{route('pending.packages', $shipment->id)}}">#AE{{$shipment->id}}</a>
                                 </td>
                                 <td>{{$shipment->packages?->count()}}</td>
                                 <td>
@@ -90,79 +64,8 @@
                                     @else
                                     <span class="badge badge-pill badge-warning">Warning</span>
                                     @endif
-                                    @if (Auth::user()->role == 'admin')
-                                    <td ><i style="cursor: pointer" class="bx bx-pencil" data-toggle="modal" data-target="#exampleModalScrollable{{$shipment->id}}"></i></td>
-                                    @endif
                                     
                             </tr>
-                            <div class="modal fade" id="exampleModalScrollable{{$shipment->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-scrollable modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title mt-0" id="exampleModalScrollableTitle">Update Shipment</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form action="{{ route('shipments.store', $shipment->id) }}" method="POST">
-                                                @csrf
-                                                <div class="form-group">
-                                                    <h5>#AX{{$shipment->id}}</h5>
-                                                </div>
-                                                    
-                                                {{-- @foreach($shipment->packages as $package)
-                                                <div class="package-group">
-                                                    <h5>Package {{ $loop->iteration }}</h5>
-                                                    <p><strong>Tracking Number:</strong> {{ $package->tracking_number }}</p>
-                                                    <p><strong>Package Description:</strong></p>
-                                                    <p>{{ $package->description }}</p>
-                                                    <p><strong>Status:</strong> {{ $package->status }}</p>
-                                                    <hr>
-                                                </div>
-                                            @endforeach --}}
-                                            <div class="package-details">
-                                                <div class="package-header">
-                                                    <div>#</div>
-                                                    <div>Tracking Number</div>
-                                                    <div>Description</div>
-                                                    <div>Status</div>
-                                                </div>
-                                                
-                                                @foreach($shipment->packages as $package)
-                                                    <div class="package-row">
-                                                        <div>{{ $loop->iteration }}</div>
-                                                        <div>{{ $package->tracking_number }}</div>
-                                                        <div>{{ $package->description }}</div>
-                                                        <div>{{ $package->status }}</div>
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                    
-                                                <div class="form-group mt-3">
-                                                    <label >Status</label>
-                                                                    <div>
-                                                                        <select name="status" class="custom-select">
-                                                                            <option value="Pending" {{$shipment->status == 'Pending' ? 'selected' : ''}}>Pending</option>
-                                                                            <option value="Received" {{$shipment->status == 'Received' ? 'selected' : ''}}>Received</option>
-                                                                            <option value="Received" {{$shipment->status == 'In Transit' ? 'selected' : ''}}>In Transit</option>
-                                                                            <option value="Received" {{$shipment->status == 'Ready' ? 'selected' : ''}}>Ready for Pickup</option>
-                                                                            <option value="Received" {{$shipment->status == 'Delivered' ? 'selected' : ''}}>Delivered</option>
-                                                                            {{-- <option value="2">Two</option>
-                                                                            <option value="3">Three</option> --}}
-                                                                        </select>
-                                                                    </div>
-                                            <div>
-                            
-                                                <div class="modal-footer" style='margint-bottom:-2rem'>
-                                                    <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Update Shipment</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             @endforeach
                         </tbody>
                     </table>
@@ -171,7 +74,7 @@
         </div>
     </div>
 
-    {{-- <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-scrollable modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -181,14 +84,14 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('shipments.store') }}" method="POST">
+                    <form action="{{ route('pending-shipments.store') }}" method="POST">
                         @csrf
                         {{-- <div class="form-group">
                             <label for="tracking_number">Tracking Number</label>
                             <input type="text" name="tracking_number" class="form-control" id="tracking_number" required>
                         </div> --}}
                         
-                        {{-- <div id="package-details-container"></div>
+                        <div id="package-details-container"></div>
     
                         <button type="button" id="add-package-btn" class="btn btn-secondary">Add Package</button>
     
@@ -201,9 +104,9 @@
             </div>
         </div>
     </div>
-</div> --}}
-{{--  --}}
-{{-- <script>
+</div>
+
+<script>
     document.addEventListener('DOMContentLoaded', function () {
         let packageCount = 0;
         const packageIds = [];
@@ -262,5 +165,5 @@
             }
         });
     });
-</script>  --}}
+</script>
 @endsection

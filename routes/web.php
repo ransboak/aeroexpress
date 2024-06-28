@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ShipmentController;
@@ -28,15 +29,22 @@ Route::get('/blog', [PageController::class, 'blog'])->name('blog') ;
 Route::get('/contact-us', [PageController::class, 'contactUs'])->name('contactUs') ;
 Route::get('/request-quote', [PageController::class, 'requestQuote'])->name('requestQuote') ;
 
-Route::post('addShipment', [ShipmentController::class, 'addShipment'])->name('shipments.store');
+Route::post('addShipment/{package}', [ShipmentController::class, 'addShipment'])->name('shipments.store');
 Route::get('/dashboard', function () {
     return view('backend.pages.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/shipments', [PageController::class, 'shipments'])->name('shipments');
-    Route::get('/packages', [PageController::class, 'packages'])->name('packages');
-    Route::get('invoice', [PageController::class, 'invoice'])->name('invoice');
+    Route::get('/all-shipments', [PageController::class, 'allShipments'])->name('all.shipments');
+    Route::get('/pending-shipments', [PageController::class, 'pendingShipments'])->name('pending.shipments');
+    Route::get('/pending-packages', [PageController::class, 'allPendingPackages'])->name('all.pending.shipments');
+    Route::get('/pending-packages/{shipment}', [PageController::class, 'pendingPackages'])->name('pending.packages');
+    Route::get('/update-package/{package}', [PackageController::class, 'updatePackage'])->name('package.update');
+    Route::post('/pending-shipment', [ShipmentController::class, 'pendingShipment'])->name('pending-shipments.store');
+    Route::post('/package/{shipment}', [PackageController::class, 'addPackage'])->name('package.store');
+    Route::get('/packages/{shipment}', [PageController::class, 'packages'])->name('packages');
+    Route::get('invoice/{shipment}', [PageController::class, 'invoice'])->name('invoice');
 });
 
 Route::middleware('auth')->group(function () {

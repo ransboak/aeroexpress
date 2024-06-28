@@ -13,17 +13,20 @@ return new class extends Migration
     {
         Schema::create('packages', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->unsignedBigInteger('shipment_id');
+            $table->unsignedBigInteger('shipment_id')->nullable();
+            $table->unsignedBigInteger('custshipment_id');
             $table->unsignedBigInteger('tracking_number')->unique();
             $table->string('package_image')->nullable();
-            $table->string('description');
+            $table->string('exp_description');
+            $table->string('rec_description')->nullable();
             $table->decimal('weight', 8, 2)->nullable();
             $table->decimal('price', 10, 2)->nullable();
-            $table->string('status')->default('pending');
+            $table->string('status')->default('Pending');
             $table->boolean('arrived')->default(false);
             $table->timestamps();
 
             $table->index('shipment_id');
+            $table->index('custshipment_id');
             $table->index('tracking_number');
             $table->index('status');
             $table->index('arrived');

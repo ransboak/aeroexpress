@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Shipment extends Model
+class CustShipment extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class Shipment extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-       'id', 'tracking_number', 'custshipment_id', 'user_id', 'price', 'status', 'received', 'in_transit', 'ready', 'delivered'
+       'id', 'tracking_number', 'user_id', 'price', 'status'
     ];
     
 
@@ -25,7 +25,7 @@ class Shipment extends Model
 
     public function packages()
     {
-        return $this->hasMany(Package::class, 'shipment_id');
+        return $this->hasMany(Package::class, 'custshipment_id');
     }
 
     public function payment()
@@ -37,12 +37,12 @@ class Shipment extends Model
     {
         parent::boot();
 
-        static::creating(function ($shipment) {
+        static::creating(function ($custshipment) {
             do {
-                $shipment_id = time() . mt_rand(100, 999);
-            } while (self::where('id', $shipment_id)->exists());
+                $custshipment_id = time() . mt_rand(100, 999);
+            } while (self::where('id', $custshipment_id)->exists());
 
-            $shipment->id = $shipment_id;
+            $custshipment->id = $custshipment_id;
         });
     }
 }

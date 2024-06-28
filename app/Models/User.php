@@ -49,6 +49,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Shipment::class);
     }
+    public function custshipments()
+    {
+        return $this->hasMany(CustShipment::class);
+    }
 
     public function packages()
     {
