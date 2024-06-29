@@ -80,7 +80,7 @@
                                     <i class="bx bx-pencil" style="cursor: pointer" data-toggle="modal" data-target="#exampleModalScrollable{{$package->id}}"></i>
                                     @else
                                     <i class="fas fa-eye" style="cursor: pointer" data-toggle="modal" data-target="#viewPackageModal{{$package->id}}"></i>
-                                    @endif    
+                                    @endif
                                 </td>
                                 <div class="modal fade" id="viewPackageModal{{$package->id}}" tabindex="-1" role="dialog" aria-labelledby="viewPackageModalTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable modal-lg">
@@ -102,7 +102,7 @@
                                                             {{ $package->exp_description }}
                                                         </div>
                                                     </div>
-                                            
+
                                                     <div class="form-group">
                                                         <label for="received_product">Received Package</label>
                                                         <div>
@@ -111,7 +111,7 @@
                                                             @else
                                                             <span class="badge badge-pill badge-warning">Pending</span>
                                                             @endif
-                                                            
+
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
@@ -124,7 +124,7 @@
                                                                             @endif
                                                                         </div>
                                                 <div>
-                                
+
                                                     <div class="modal-footer" style="margin-bottom: -2rem">
                                                         <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
                                                     </div>
@@ -133,7 +133,7 @@
                                     </div>
                                 </div>
                             </tr>
-                            
+
                             @if (Auth::user()->role == 'admin')
                             <div class="modal fade" id="exampleModalScrollable{{$package->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable modal-lg">
@@ -157,7 +157,7 @@
                                                         {{ $package->exp_description }}
                                                     </div>
                                                 </div>
-                                        
+
                                                 <div class="form-group">
                                                     <label for="rec_description">Received Package</label>
                                                     <textarea style="resize: none" rows="3" name="rec_description" class="form-control" id="rec_description" required>{{ old('rec_description', $package->rec_description) }}</textarea>
@@ -173,7 +173,7 @@
                                                                         </select>
                                                                     </div>
                                             <div>
-                            
+
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Update Package</button>

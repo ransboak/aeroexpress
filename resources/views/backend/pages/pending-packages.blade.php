@@ -75,8 +75,8 @@
                                     <span class="badge badge-pill badge-success">Received</span>
                                     @endif
                                 </td>
-                                <td><i class="bx bx-pencil" data-toggle="modal" data-target="#exampleModalScrollable{{$package->id}}"></i></td>
-                                    
+                                <td><i class="bx bx-pencil" style="cursor: pointer" data-toggle="modal" data-target="#exampleModalScrollable{{$package->id}}"></i></td>
+
                             </tr>
                             <div class="modal fade" id="exampleModalScrollable{{$package->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-scrollable modal-lg">
@@ -97,13 +97,13 @@
                                                 <div class="form-group">
                                                     <label>Expected Package</label>
                                                     <div class="expected-product">
-                                                        {{ $package->description }}
+                                                        {{ $package->exp_description }}
                                                     </div>
                                                 </div>
-                                        
+
                                                 <div class="form-group">
                                                     <label for="received_product">Received Package</label>
-                                                    <textarea style="resize: none" rows="3" name="rec_description" class="form-control" id="rec_description" required>{{ old('description', $package->description) }}</textarea>
+                                                    <textarea style="resize: none" rows="3" name="rec_description" class="form-control" id="rec_description" required>{{ old('rec_description', $package->rec_description) }}</textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <label >Status</label>
@@ -116,7 +116,7 @@
                                                                         </select>
                                                                     </div>
                                             <div>
-                            
+
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
                                                     <button type="submit" class="btn btn-primary waves-effect waves-light">Update Package</button>
@@ -169,7 +169,7 @@
                 <label for="package_description_${packageCount}">Package Description</label>
                 <div class='d-flex' style='align-items: flex-end'>
                     <textarea style="resize: none" rows="5" name="packages[${packageIds.length}][description]" class="form-control" id="package_description_${packageCount}" required></textarea>
-                    <button type="button" class="btn btn-danger remove-package-btn" data-package-id="${packageCount}"><i class="bx bx-trash"></i></button>    
+                    <button type="button" class="btn btn-danger remove-package-btn" data-package-id="${packageCount}"><i class="bx bx-trash"></i></button>
                 </div>
             `;
 
@@ -187,7 +187,7 @@
                 if (index > -1) {
                     packageIds.splice(index, 1);
                 }
-                
+
                 // Update package IDs and count
                 updatePackageIds();
             }

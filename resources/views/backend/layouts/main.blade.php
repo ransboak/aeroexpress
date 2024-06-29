@@ -2,9 +2,9 @@
 <html lang="en">
 
     <head>
-        
+
         <meta charset="utf-8" />
-        <title>Dashboard | Skote - Responsive Bootstrap 4 Admin Dashboard</title>
+        <title>AAERO XPRESS</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Aeroepress" name="description" />
         <meta content="Aero" name="author" />
@@ -33,7 +33,7 @@
         <div id="layout-wrapper">
 
             @include('backend.layouts.navbar')
-            
+
             <!-- ========== Left Sidebar Start ========== -->
             @include('backend.layouts.left-sidebar')
 <!-- Left Sidebar End -->
@@ -49,7 +49,7 @@
                 </div>
                 <!-- End Page-content -->
 
-                
+
 
                 @include('backend.layouts.footer')
             </div>
@@ -80,7 +80,7 @@
                         <input type="checkbox" class="custom-control-input theme-choice" id="light-mode-switch" checked />
                         <label class="custom-control-label" for="light-mode-switch">Light Mode</label>
                     </div>
-    
+
                     <div class="mb-2">
                         <img src="{{asset('backend/assets/images/layouts/layout-2.jpg')}}" class="img-fluid img-thumbnail" alt="">
                     </div>
@@ -88,7 +88,7 @@
                         <input type="checkbox" class="custom-control-input theme-choice" id="dark-mode-switch" data-bsStyle="{{asset('backend/assets/css/bootstrap-dark.min.css')}}" data-appStyle="{{asset('backend/assets/css/app-dark.min.css')}}" />
                         <label class="custom-control-label" for="dark-mode-switch">Dark Mode</label>
                     </div>
-    
+
                     <div class="mb-2">
                         <img src="{{asset('backend/assets/images/layouts/layout-3.jpg')}}" class="img-fluid img-thumbnail" alt="">
                     </div>
@@ -97,7 +97,7 @@
                         <label class="custom-control-label" for="rtl-mode-switch">RTL Mode</label>
                     </div>
 
-            
+
                 </div>
 
             </div> <!-- end slimscroll-menu-->
@@ -134,13 +134,14 @@
         <script src="{{asset('backend/assets/libs/datatables.net-buttons/js/buttons.html5.min.js')}}"></script>
         <script src="{{asset('backend/assets/libs/datatables.net-buttons/js/buttons.print.min.js')}}"></script>
         <script src="{{asset('backend/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js')}}"></script>
-        
+
         <!-- Responsive examples -->
         <script src="{{asset('backend/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
         <script src="{{asset('backend/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
 
         <!-- Datatable init js -->
-        <script src="{{asset('backend/assets/js/pages/datatables.init.js')}}"></script>    
+        <script src="{{asset('backend/assets/js/pages/datatables.init.js')}}"></script>
     </body>
 
 </html>
+
