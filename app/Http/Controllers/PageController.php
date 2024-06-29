@@ -83,6 +83,7 @@ class PageController extends Controller
         return view('backend.pages.shipment-packages', compact('shipment'));
     }
     public function pendingPackages(CustShipment $shipment){
+        return redirect()->back();
         $user = Auth::user();
         if($user->role !== 'admin'){
             if($shipment->user_id == $user->id){
