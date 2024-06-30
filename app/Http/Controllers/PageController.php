@@ -30,7 +30,7 @@ class PageController extends Controller
     public function contactUs(){
         return view('frontend.pages.contact-us');
     }
-    
+
     public function requestQuote(){
         return view('frontend.pages.request-quote');
     }
@@ -42,7 +42,7 @@ class PageController extends Controller
             $shipments = Shipment::with(['user', 'packages'])->latest()->get();
         }else{
             $shipments = $user->shipments;
-        }    
+        }
         return view('backend.pages.shipments', compact('shipments'));
     }
     public function allShipments(){
@@ -51,7 +51,7 @@ class PageController extends Controller
             $shipments = Shipment::with(['user', 'packages'])->latest()->get();
         }else{
             $shipments = $user->shipments;
-        }    
+        }
         return view('backend.pages.shipments', compact('shipments'));
     }
     public function unclaimedShipments(){
@@ -59,7 +59,7 @@ class PageController extends Controller
         if($user->role !== 'admin'){
             return redirect()->back();
         }
-        $shipments = Shipment::with(['user', 'packages'])->where('custshipment_id', null)->latest()->get(); 
+        $shipments = Shipment::with(['user', 'packages'])->where('custshipment_id', null)->latest()->get();
         return view('backend.pages.unclaimed-shipments', compact('shipments'));
     }
     public function pendingShipments(){
@@ -68,7 +68,7 @@ class PageController extends Controller
             $shipments = CustShipment::with(['user', 'packages'])->latest()->get();
         }else{
             $shipments = $user->custshipments;
-        }    
+        }
         return view('backend.pages.pending-shipments', compact('shipments'));
     }
     public function packages(Shipment $shipment){
@@ -83,7 +83,6 @@ class PageController extends Controller
         return view('backend.pages.shipment-packages', compact('shipment'));
     }
     public function pendingPackages(CustShipment $shipment){
-        return redirect()->back();
         $user = Auth::user();
         if($user->role !== 'admin'){
             if($shipment->user_id == $user->id){
@@ -115,7 +114,7 @@ class PageController extends Controller
             })->where('status', 'Pending')->latest()->get();
         }
         return view('backend.pages.pending-packages', compact('packages'));
-        
+
     }
     public function allPackages(){
         $user = Auth::user();
@@ -127,7 +126,7 @@ class PageController extends Controller
             })->latest()->get();
         }
         return view('backend.pages.all-packages', compact('packages'));
-        
+
     }
     public function invoice(Shipment $shipment){
         return view('backend.pages.invoice');

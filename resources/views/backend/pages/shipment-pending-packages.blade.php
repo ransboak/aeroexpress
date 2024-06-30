@@ -6,34 +6,34 @@
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <h4 class="mb-0 font-size-18">Shipment #AX{{$shipment->id}}</h4>
                 @if (session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{session('success')}}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        @endif
-                        @if (session('error'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {{session('error')}}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        @endif
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{session('success')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
+                @if (session('error'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{session('error')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                @endif
 
-                        @if ($errors->any())
-                        <ul style="list-style: none">
-                            @foreach ($errors->all() as $error)
-                                <li><div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{$error}}
-                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div></li>
-                            @endforeach
-                        </ul>
-                    @endif
+                @if ($errors->any())
+                <ul style="list-style: none">
+                    @foreach ($errors->all() as $error)
+                        <li><div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{$error}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div></li>
+                    @endforeach
+                </ul>
+            @endif
             </div>
         </div>
     </div>
@@ -68,7 +68,7 @@
                                     @else
                                     <span class="badge badge-pill badge-success">{{$shipment->status}}</span>
                                     @endif
-                                    
+
                             </tr>
                             @endforeach
                         </tbody>
@@ -93,11 +93,13 @@
                         <div class="form-group">
                             <label for="tracking_number">Tracking Number</label>
                             <input type="text" name="tracking_number" class="form-control" id="tracking_number" required>
-                            <label for="description">Package Description</label>
-                    <div>
-                    <textarea style="resize: none" rows="5" name="description" class="form-control" id="description" required></textarea>
+
                         </div>
-    
+                    <div class="form-group">
+                        <label for="description">Package Description</label>
+                    <textarea style="resize: none" rows="5" name="exp_description" class="form-control" id="description" required></textarea>
+                        </div>
+
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
                             <button type="submit" class="btn btn-primary waves-effect waves-light">Add Shipment</button>
@@ -144,7 +146,7 @@
                 <label for="package_description_${packageCount}">Package Description</label>
                 <div class='d-flex' style='align-items: flex-end'>
                     <textarea style="resize: none" rows="5" name="packages[${packageIds.length}][description]" class="form-control" id="package_description_${packageCount}" required></textarea>
-                    <button type="button" class="btn btn-danger remove-package-btn" data-package-id="${packageCount}"><i class="bx bx-trash"></i></button>    
+                    <button type="button" class="btn btn-danger remove-package-btn" data-package-id="${packageCount}"><i class="bx bx-trash"></i></button>
                 </div>
             `;
 
@@ -162,7 +164,7 @@
                 if (index > -1) {
                     packageIds.splice(index, 1);
                 }
-                
+
                 // Update package IDs and count
                 updatePackageIds();
             }
