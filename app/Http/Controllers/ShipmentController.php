@@ -56,7 +56,6 @@ class ShipmentController extends Controller
     public function unclaimedShipments(Request $request)
     {
 
-        try {
             $request->validate([
                 'tracking_number' => 'string|max:255',
                 'packages' => 'required|array|min:1',
@@ -71,16 +70,14 @@ class ShipmentController extends Controller
 
             foreach ($request->input('packages', []) as $package) {
                 Package::create([
-                    'shipment' => $shipment->id,
+                    'shipment_id' => $shipment->id,
                     'rec_description' => $package['description'],
                     'tracking_number' => $package['tracking_number'],
                 ]);
             }
 
             return redirect()->route('unclaimed.shipments')->with('success', 'Shipment added successfully');
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'An error occured please try again later');
-        }
+       
     }
 
 
