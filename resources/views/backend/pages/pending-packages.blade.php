@@ -56,7 +56,7 @@
                         <thead>
                             <tr>
                                 <th>Tracking Number</th>
-                                <th>Description</th>
+                                {{-- <th>Description</th> --}}
                                 <th>Status</th>
                                 <td>Action</td>
                             </tr>
@@ -67,7 +67,7 @@
                                 <td>
                                     {{$package->tracking_number}}
                                 </td>
-                                <td>{{$package->exp_description}}</td>
+                                {{-- <td>{{$package->exp_description ? $package->exp_description : $package->rec_description}}</td> --}}
                                 <td>
                                     @if ($package->status == 'Pending')
                                     <span class="badge badge-pill badge-warning">Pending</span>

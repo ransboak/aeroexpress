@@ -60,7 +60,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-4">
-                                    <a href="" class="btn btn-primary waves-effect waves-light btn-sm">View Profile <i class="mdi mdi-arrow-right ml-1"></i></a>
+                                    <a href="{{route('pending.shipments')}}" class="btn btn-primary waves-effect waves-light btn-sm">Request Shipment <i class="mdi mdi-arrow-right ml-1"></i></a>
                                 </div>
                             </div>
                         </div>

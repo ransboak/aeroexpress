@@ -147,7 +147,7 @@
                                                     <div class="package-row">
                                                         <div>{{ $loop->iteration }}</div>
                                                         <div>{{ $package->tracking_number }}</div>
-                                                        <div>{{ $package->description }}</div>
+                                                        <div>{{ $package->rec_description }}</div>
                                                         <div>{{ $package->status }}</div>
                                                     </div>
                                                 @endforeach

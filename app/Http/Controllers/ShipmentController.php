@@ -72,7 +72,8 @@ class ShipmentController extends Controller
                 Package::create([
                     'shipment_id' => $shipment->id,
                     'rec_description' => $package['description'],
-                    'tracking_number' => $package['tracking_number'],
+                    'tracking_number' => $package['tracking_number'],   
+                    'status' => 'Received'
                 ]);
             }
 
@@ -138,12 +139,7 @@ class ShipmentController extends Controller
             'user_id' => Auth::user()->id,
             'tracking_number' => $request->input('tracking_number'),
         ]);
-
-        Notification::create([
-            'user_id' => Auth::user()->id,
-            'type' => 'shipmentAdded',
-            'message' => 'New shipment added',
-        ]);
+   
 
         foreach ($request->input('packages', []) as $package) {
             Package::create([
@@ -152,6 +148,12 @@ class ShipmentController extends Controller
                 'tracking_number' => $package['tracking_number'],
             ]);
         }
+
+        Notification::create([
+            'user_id' => Auth::user()->id,
+            'type' => 'shipmentAdded',
+            'message' => 'New shipment added',
+        ]);
 
         return redirect()->route('pending.shipments')->with('success', 'Shipment added successfully');
     }

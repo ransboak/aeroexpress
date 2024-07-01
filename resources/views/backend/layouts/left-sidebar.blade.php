@@ -43,9 +43,11 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li><a href="{{route('pending.shipments')}}">
                             <span class="badge badge-pill badge-success float-right">New</span>
-                            <span>Pending</span> </a></li>
-                        <li><a href="{{route('shipments')}}">Received</a></li>
+                            <span>Requests</span> </a></li>
+                        <li><a href="{{route('shipments')}}">Active</a></li>
+                        @if (Auth::user()->role == 'admin')
                         <li><a href="{{route('unclaimed.shipments')}}">Unclaimed</a></li>
+                        @endif
                     </ul>
                 </li>
             </ul>

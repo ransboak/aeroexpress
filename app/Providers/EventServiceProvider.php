@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Shipment;
+use App\Observers\ShipmentObserver;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -19,6 +21,10 @@ class EventServiceProvider extends ServiceProvider
             SendEmailVerificationNotification::class,
         ],
     ];
+    /*
+    protected $observers = [
+        Shipment::class => [ShipmentObserver::class],
+    ]
 
     /**
      * Register any events for your application.
@@ -26,6 +32,7 @@ class EventServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        Shipment::observe(ShipmentObserver::class);
     }
 
     /**

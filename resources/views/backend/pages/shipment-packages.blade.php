@@ -78,7 +78,7 @@
                                 <td>
                                     {{$package->tracking_number}}
                                 </td>
-                                <td>{{$package->description}}</td>
+                                <td>{{$package->rec_description}}</td>
                                 <td>
                                     @if ($package->status == 'Pending')
                                     <span class="badge badge-pill badge-warning">Pending</span>
