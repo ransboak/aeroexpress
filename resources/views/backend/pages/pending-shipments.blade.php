@@ -6,25 +6,34 @@
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <h4 class="mb-0 font-size-18">Pending Shipments</h4>
                 @if (session('success'))
-                    <div class="alert alert-success" role="alert">
-                        {{session('success')}}
-                    </div>
-                @endif
-                @if (session('error'))
-                    <div class="alert alert-danger" role="alert">
-                        {{session('error')}}
-                    </div>
-                @endif
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            {{session('success')}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        @endif
+                        @if (session('error'))
+                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{session('error')}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        @endif
 
-                @if ($errors->any())
-                    <ul style="list-style: none">
-                        @foreach ($errors->all() as $error)
-                            <li><div class="alert alert-danger" role="alert">
-                                {{$error}}
-                            </div></li>
-                        @endforeach
-                    </ul>
-                @endif
+                        @if ($errors->any())
+                        <ul style="list-style: none">
+                            @foreach ($errors->all() as $error)
+                                <li><div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    {{$error}}
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div></li>
+                            @endforeach
+                        </ul>
+                    @endif
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>

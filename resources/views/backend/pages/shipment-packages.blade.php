@@ -8,25 +8,34 @@
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 @if (session('success'))
-                    <div class="alert alert-success" role="alert">
-                        {{session('success')}}
-                    </div>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{session('success')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 @endif
                 @if (session('error'))
-                    <div class="alert alert-danger" role="alert">
-                        {{session('error')}}
-                    </div>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    {{session('error')}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
                 @endif
 
                 @if ($errors->any())
-                    <ul style="list-style: none">
-                        @foreach ($errors->all() as $error)
-                            <li><div class="alert alert-danger" role="alert">
-                                {{$error}}
-                            </div></li>
-                        @endforeach
-                    </ul>
-                @endif
+                <ul style="list-style: none">
+                    @foreach ($errors->all() as $error)
+                        <li><div class="alert alert-danger alert-dismissible fade show" role="alert">
+                            {{$error}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div></li>
+                    @endforeach
+                </ul>
+            @endif
             </div>
         </div>
     </div>

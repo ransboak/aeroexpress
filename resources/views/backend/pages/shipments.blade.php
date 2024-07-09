@@ -158,7 +158,6 @@
                                                                     <div>
                                                                         <select name="status" class="custom-select">
                                                                             <option value="Pending" {{$shipment->status == 'Pending' ? 'selected' : ''}}>Pending</option>
-                                                                            <option value="Received" {{$shipment->status == 'Received' ? 'selected' : ''}}>Received</option>
                                                                             <option value="In Transit" {{$shipment->status == 'In Transit' ? 'selected' : ''}}>In Transit</option>
                                                                             <option value="Ready" {{$shipment->status == 'Ready' ? 'selected' : ''}}>Ready for Pickup</option>
                                                                             <option value="Delivered" {{$shipment->status == 'Delivered' ? 'selected' : ''}}>Delivered</option>

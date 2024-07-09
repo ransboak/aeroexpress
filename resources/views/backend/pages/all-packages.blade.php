@@ -162,21 +162,13 @@
                                                     <label for="rec_description">Received Package</label>
                                                     <textarea style="resize: none" rows="3" name="rec_description" class="form-control" id="rec_description" required>{{ old('rec_description', $package->rec_description) }}</textarea>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label >Status</label>
-                                                                    <div>
-                                                                        <select name="status" class="custom-select">
-                                                                            <option value="Pending" {{$package->status == 'Pending' ? 'selected' : ''}}>Pending</option>
-                                                                            <option value="Received" {{$package->status == 'Received' ? 'selected' : ''}}>Received</option>
-                                                                            {{-- <option value="2">Two</option>
-                                                                            <option value="3">Three</option> --}}
-                                                                        </select>
-                                                                    </div>
-                                            <div>
+                                               
 
                                                 <div class="modal-footer">
                                                     <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Update Package</button>
+                                                    @if ($package->status == 'Pending')
+                                                    <button type="submit" class="btn btn-primary waves-effect waves-light">Mark as received</button>
+                                                    @endif
                                                 </div>
                                             </form>
                                         </div>

@@ -21,9 +21,17 @@ class ShipmentObserver
     public function updated(Shipment $shipment): void
     {
         //
-        if ($shipment->status == 'Ready') {
-            // Update related packages
-            $shipment->packages()->update(['arrived' => true]);
+        if ($shipment->status == 'In Transit') {
+            $shipment->packages()->update(['status' => 'In Transit']);
+        }
+        elseif ($shipment->status == 'Delivered') {
+            $shipment->packages()->update(['status' => 'Delivered']);
+        }
+        elseif ($shipment->status == 'Ready') {
+            $shipment->packages()->update([
+                'arrived' => true,
+                'status' => 'Ready',
+            ]);
         }
     }
 

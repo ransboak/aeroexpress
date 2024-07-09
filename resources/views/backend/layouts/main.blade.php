@@ -11,6 +11,9 @@
         <!-- App favicon -->
         <link href="{{asset('backend/assets/images/aeroexp.ico')}}" rel="icon">
 
+        <!-- Sweet Alert-->
+        <link href="{{asset('backend/assets/libs/sweetalert2/sweetalert2.min.css')}}" rel="stylesheet" type="text/css" />
+
         <!-- Bootstrap Css -->
         <link href="{{asset('backend/assets/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
         <!-- Icons Css -->
@@ -141,6 +144,12 @@
 
         <!-- Datatable init js -->
         <script src="{{asset('backend/assets/js/pages/datatables.init.js')}}"></script>
+
+        <!-- Sweet Alerts js -->
+        <script src="{{asset('backend/assets/libs/sweetalert2/sweetalert2.min.js')}}"></script>
+
+        <!-- Sweet alert init js-->
+        <script src="{{asset('backend/assets/js/pages/sweet-alerts.init.js')}}"></script>
     </body>
 
 </html>
