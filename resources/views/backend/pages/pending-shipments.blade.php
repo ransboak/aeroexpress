@@ -1,39 +1,47 @@
 @extends('backend.layouts.main')
+
 @section('content')
+<!-- Preloader -->
+<div id="preload">
+    <div class="spinner"></div>
+</div>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
             <div class="page-title-box d-flex align-items-center justify-content-between">
                 <h4 class="mb-0 font-size-18">Pending Shipments</h4>
                 @if (session('success'))
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            {{session('success')}}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        @endif
-                        @if (session('error'))
-                        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                            {{session('error')}}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        @endif
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ session('success') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ session('error') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
 
-                        @if ($errors->any())
-                        <ul style="list-style: none">
-                            @foreach ($errors->all() as $error)
-                                <li><div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    {{$error}}
+                @if ($errors->any())
+                    <ul style="list-style: none">
+                        @foreach ($errors->all() as $error)
+                            <li>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    {{ $error }}
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
-                                </div></li>
-                            @endforeach
-                        </ul>
-                    @endif
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endif
                 <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                         <li class="breadcrumb-item"><a href="javascript: void(0);">Dashboard</a></li>
@@ -52,7 +60,7 @@
                         <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#exampleModalScrollable">Add Shipment</button>
                     </div>
 
-                    <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <table id="shipments-table" class="table table-striped table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                             <tr>
                                 <th>Shipment ID</th>
@@ -60,23 +68,6 @@
                                 <th>Status</th>
                             </tr>
                         </thead>
-                        <tbody>
-                            @foreach ($shipments as $shipment)
-                            <tr>
-                                <td>
-                                    <a href="{{route('pending.packages', $shipment->id)}}">#AE{{$shipment->id}}</a>
-                                </td>
-                                <td>{{$shipment->packages?->count()}}</td>
-                                <td>
-                                    @if ($shipment->status == 'Pending')
-                                    <span class="badge badge-pill badge-warning">Pending</span>
-                                    @else
-                                    <span class="badge badge-pill badge-success">{{$shipment->status}}</span>
-                                    @endif
-                                    
-                            </tr>
-                            @endforeach
-                        </tbody>
                     </table>
                 </div>
             </div>
@@ -115,10 +106,48 @@
     </div>
 </div>
 
+<style>
+    /* Preloader styles */
+    #preload {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9999;
+        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .spinner {
+        border: 6px solid #f3f3f3; /* Light grey */
+        border-top: 6px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+</style>
+
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         let packageCount = 0;
         const packageIds = [];
+
+        // Hide preloader after content is fully loaded
+        window.addEventListener('load', function() {
+            const preload = document.getElementById('preload');
+            if (preload) {
+                preload.style.display = 'none';
+            }
+        });
 
         function updatePackageIds() {
             packageIds.forEach((id, index) => {
@@ -173,6 +202,19 @@
                 updatePackageIds();
             }
         });
+
+        // Initialize DataTable with server-side processing
+        $('#shipments-table').DataTable({
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('custshipments.data') }}", // Add a route for data fetching
+            columns: [
+                { data: 'shipment_id', name: 'shipment_id' },
+                { data: 'packages_count', name: 'packages_count' },
+                { data: 'status', name: 'status' }
+            ]
+        });
     });
 </script>
+
 @endsection

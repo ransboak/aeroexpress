@@ -63,13 +63,7 @@ class PageController extends Controller
         return view('backend.pages.unclaimed-shipments', compact('shipments'));
     }
     public function pendingShipments(){
-        $user = Auth::user();
-        if($user->role == 'admin'){
-            $shipments = CustShipment::with(['user', 'packages'])->latest()->get();
-        }else{
-            $shipments = $user->custshipments;
-        }
-        return view('backend.pages.pending-shipments', compact('shipments'));
+        return view('backend.pages.pending-shipments');
     }
     public function packages(Shipment $shipment){
         $user = Auth::user();
