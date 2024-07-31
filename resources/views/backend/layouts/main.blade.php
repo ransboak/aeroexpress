@@ -27,29 +27,11 @@
 
         <!-- Responsive datatable examples -->
         <link href="{{asset('backend/assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css')}}" rel="stylesheet" type="text/css" />
-        <style>
-            #preloade {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.8); /* White with transparency */
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-#preloade img{
-    width: 100px;
-}
-        </style>
+
     </head>
-   
+
     <body data-sidebar="dark">
-        <div id="preloade">
-            <img src="{{asset('aaero.gif')}}" alt="">
-        </div>
+
         <!-- Begin page -->
         <div id="layout-wrapper">
 
@@ -168,15 +150,6 @@
 
         <!-- Sweet alert init js-->
         <script src="{{asset('backend/assets/js/pages/sweet-alerts.init.js')}}"></script>
-
-        <script>
-            document.addEventListener("DOMContentLoaded", function(){
-                const preloader = document.getElementById('preloade');
-                window.addEventListener('load', function(){
-                    preloader.style.display = 'none'
-                })
-            })
-        </script>
     </body>
 
 </html>
